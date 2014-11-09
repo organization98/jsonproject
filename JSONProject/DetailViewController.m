@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 #import "LMLUser.h"
+#import "DetailCustomCellTableViewCell.h"
+#import "LMLNetworkManager.h"
 
 
 @interface DetailViewController ()
@@ -18,6 +20,7 @@
 @implementation DetailViewController {
     NSMutableArray *sections;
     NSMutableArray *sectionNames;
+    NSMutableDictionary *fields;
 }
 
 
@@ -36,6 +39,8 @@
         [sectionNames addObject:dictionary];
     }
     [self.fullUserInfoView reloadData];
+    
+    fields = [[NSMutableDictionary alloc] init];
 }
 
 
@@ -62,12 +67,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *indentifier = @"Cell";
+    static NSString *indentifier = @"customDetailCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:indentifier];
+    DetailCustomCellTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:indentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:indentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:indentifier forIndexPath:indexPath];
     }
     
     NSDictionary *parametes = [[NSDictionary alloc] initWithDictionary:[sections objectAtIndex:indexPath.section]];
@@ -75,12 +80,30 @@
     NSString *label = [keys objectAtIndex:indexPath.row];
     NSString *text = [parametes objectForKey:label];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@:", label];
-    cell.detailTextLabel.text = text;
+    cell.labelTitle.text = [NSString stringWithFormat:@"%@:", label];
+    cell.textFieldValue.text = text;
+    
+    [fields setObject:cell forKey:label];
+    
     return cell;
 }
 
 
 
 
+- (IBAction)buttonSaveItem:(UIBarButtonItem *)sender {
+    
+   
+    for (NSString *key in fields) {
+        
+        DetailCustomCellTableViewCell *cell = [fields objectForKey:key];
+        
+        NSLog(@"label: %@ value: %@", cell.labelTitle.text, cell.textFieldValue.text);
+        
+    }
+     
+    
+    
+    
+}
 @end

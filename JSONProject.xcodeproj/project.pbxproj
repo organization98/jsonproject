@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		320A11EF1A0FBBCB00194970 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 320A11EE1A0FBBCB00194970 /* File */; };
+		320A11F41A0FEC8E00194970 /* DetailCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
@@ -57,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		320A11EE1A0FBBCB00194970 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		320A11F21A0FEC8E00194970 /* DetailCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCustomCellTableViewCell.h; sourceTree = "<group>"; };
+		320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		324C26561A077D4C00C7FFE1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +163,8 @@
 			children = (
 				979BC7DD1A02E310005623F1 /* LMLCustomCell.h */,
 				979BC7DE1A02E310005623F1 /* LMLCustomCell.m */,
+				320A11F21A0FEC8E00194970 /* DetailCustomCellTableViewCell.h */,
+				320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				979CA66D1A03F877004FBB5D /* AFNetworkReachabilityManager.m in Sources */,
 				979CA6711A03F877004FBB5D /* AFURLResponseSerialization.m in Sources */,
 				979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */,
+				320A11F41A0FEC8E00194970 /* DetailCustomCellTableViewCell.m in Sources */,
 				979CA6921A0400F7004FBB5D /* LMLUser.m in Sources */,
 				979CA6721A03F877004FBB5D /* AFURLSessionManager.m in Sources */,
 				979CA6851A03F893004FBB5D /* AFNetworkActivityIndicatorManager.m in Sources */,
