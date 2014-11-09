@@ -1,3 +1,10 @@
 test file
 Hello!
+<<<<<<< HEAD
 Test 6
+=======
+
+Test3
+Test4
+Test5
+>>>>>>> 43b2125b97d81178dcc91b6fc5841e878ee7d14e
