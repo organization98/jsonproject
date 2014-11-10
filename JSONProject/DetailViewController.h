@@ -13,9 +13,8 @@
 @interface DetailViewController : UIViewController <UITableViewDataSource>
 
 @property (nonatomic, strong) LMLUser *detail;
-
 @property (strong,nonatomic) NSDictionary *params;
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *fullUserInfoView;
 
 - (IBAction)buttonSaveItem:(UIBarButtonItem *)sender;

@@ -14,6 +14,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *customImageView;
 
-
-
 @end

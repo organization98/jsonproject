@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailCustomCellTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldValue;
 

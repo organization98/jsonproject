@@ -21,6 +21,9 @@
     NSMutableArray *sections;
     NSMutableArray *sectionNames;
     NSMutableDictionary *fields;
+    
+    UITextField *activeField;
+    CGRect *activeFieldFrame;
 }
 
 
@@ -44,9 +47,22 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil]; // подписка на notification для UIKeyboardWillShowNotification
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil]; // подписка на notification для UIKeyboardWillHideNotification
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; // отписка от всех notification
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -89,21 +105,53 @@
 }
 
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder]; // убирает клавиатуру при нажатии на RETURN
+    return YES;
+}
+
+
+- (void)keyboardWillShow: (NSNotification *)notification {
+    
+    // размер клавиатуры
+    CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey]/*ключ*/ CGRectValue]; // получаем из dictionary фрейм клавиатуры
+    
+    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
+    
+    CGRect activeFieldFrame = activeField.frame;
+    [activeField setFrame:activeFieldFrame];
+    
+    NSLog(@"height = %f", activeFieldFrame.size.height);
+    NSLog(@"width = %f", activeFieldFrame.size.width);
+    NSLog(@"x = %f", activeFieldFrame.origin.x);
+    NSLog(@"y = %f", activeFieldFrame.origin.y);
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, /*scrollFrame*/activeFieldFrame.size.height + keyboardFrame.size.height); //присвоение нового фрейма
+    
+    [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
+}
+
+
+- (void)keyboardWillHide: (NSNotification *)notification {
+    
+    CGRect scrollFrame = self.scrollView.frame;
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height);
+    
+    [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
+}
 
 
 - (IBAction)buttonSaveItem:(UIBarButtonItem *)sender {
     
-   
     for (NSString *key in fields) {
-        
         DetailCustomCellTableViewCell *cell = [fields objectForKey:key];
-        
-        NSLog(@"label: %@ value: %@", cell.labelTitle.text, cell.textFieldValue.text);
-        
+        NSLog(@"label: %@\t\tvalue: %@", cell.labelTitle.text, cell.textFieldValue.text);
+        activeField = cell.textFieldValue;
     }
-     
-    
-    
-    
 }
+
+
 @end

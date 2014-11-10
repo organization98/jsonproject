@@ -18,11 +18,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField; // added
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property (strong, nonatomic) NSMutableArray *usersArray;
 
-@property (strong, nonatomic) NSArray *searchArray; // added
+@property (strong, nonatomic) NSArray *searchArray;
 
 - (IBAction)saveButton:(id)sender;
 
