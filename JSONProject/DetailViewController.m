@@ -23,7 +23,7 @@
     NSMutableDictionary *fields;
     
     UITextField *activeField;
-    CGRect *activeFieldFrame;
+    CGRect cellRect;
 }
 
 
@@ -118,19 +118,21 @@
     // размер клавиатуры
     CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey]/*ключ*/ CGRectValue]; // получаем из dictionary фрейм клавиатуры
     
-    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
+    NSIndexPath *index = self.fullUserInfoView.indexPathForSelectedRow;
+    cellRect = [self.fullUserInfoView rectForRowAtIndexPath:index];
+    NSLog(@"x = %f, y = %f, height = %f, width = %f", cellRect.origin.x, cellRect.origin.y, cellRect.size.height, cellRect.size.width);
     
-    CGRect activeFieldFrame = activeField.frame;
-    [activeField setFrame:activeFieldFrame];
+//    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
     
-    NSLog(@"height = %f", activeFieldFrame.size.height);
-    NSLog(@"width = %f", activeFieldFrame.size.width);
-    NSLog(@"x = %f", activeFieldFrame.origin.x);
-    NSLog(@"y = %f", activeFieldFrame.origin.y);
+    //    CGRect searchTextFrame = self.searchTextField.frame;
+    //    [self.searchTextField setFrame:searchTextFrame];
     
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, /*scrollFrame*/activeFieldFrame.size.height + keyboardFrame.size.height); //присвоение нового фрейма
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, cellRect.size.height + keyboardFrame.size.height); //присвоение нового фрейма
     
     [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
+    
+    // scrollView не скроллился пока клавиатура активна
+    //    [self.scrollView setScrollEnabled:NO];
 }
 
 

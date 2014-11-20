@@ -40,6 +40,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillShow:) /*вызывается этот метод*/ name:UIKeyboardWillShowNotification object:nil]; // oбъявление NSNotificationCenter
     
     [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillHide:) /*вызывается этот метод*/ name:UIKeyboardWillHideNotification object:nil];
+    
+//    [NSNotificationCenter defaultCenter] postNotificationName:@"" object:useR;
 }
 
 
