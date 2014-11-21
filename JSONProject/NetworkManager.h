@@ -1,5 +1,5 @@
 //
-//  LMLNetworkManager.h
+//  NetworkManager.h
 //  BlockProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LMLUser.h"
+#import "User.h"
 
 typedef  void (^NetworkBlock)(BOOL succes, id data, NSError* error);
 
-@interface LMLNetworkManager : NSObject
+@interface NetworkManager : NSObject
 
-+ (LMLNetworkManager *)sharedManager;
++ (NetworkManager *)sharedManager;
 - (void)loadDataFromURL:(NSURL *)url completion:(NetworkBlock) block;
-- (void)saveUser:(LMLUser *)user completion:(NetworkBlock) block;
+- (void)saveUser:(User *)user completion:(NetworkBlock) block;
 
 @end

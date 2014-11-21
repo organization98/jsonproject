@@ -1,22 +1,22 @@
 //
-//  LMLNetworkManager.m
+//  NetworkManager.m
 //  BlockProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
 //  Copyright (c) 2014 Dmitriy Demchenko. All rights reserved.
 //
 
-#import "LMLNetworkManager.h"
+#import "NetworkManager.h"
 #import "AFNetworking.h"
 
 
-@implementation LMLNetworkManager
+@implementation NetworkManager
 
-+ (LMLNetworkManager*) sharedManager {
-    static LMLNetworkManager* manager = nil;
++ (NetworkManager*) sharedManager {
+    static NetworkManager* manager = nil;
     static dispatch_once_t onceTaken;
     dispatch_once (& onceTaken, ^{
-        manager = [LMLNetworkManager new];
+        manager = [NetworkManager new];
     });
     return manager;
 }
@@ -34,12 +34,12 @@
 }
 
 //Сохранение пользователя
-- (void)saveUser:(LMLUser *)user completion:(NetworkBlock)block {
+- (void)saveUser:(User *)user completion:(NetworkBlock)block {
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
     NSDictionary* param = [user dictionaryFromUser];
     [manager POST:@"http://jsonplaceholder.typicode.com/users" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"USER SAVED\n%@", responseObject); //Обработка сохранения пользователя
-        LMLUser *user = [LMLUser userFromDictionary:responseObject];
+        User *user = [User userFromDictionary:responseObject];
         block(YES, user, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //Обработка ошибки
@@ -50,7 +50,7 @@
 - (NSArray*) usersFromData: (id) data {
     NSMutableArray* users = [NSMutableArray array];
     for (NSDictionary* dict in data){
-        LMLUser* user = [LMLUser userFromDictionary:dict];
+        User* user = [User userFromDictionary:dict];
         [users addObject:user];
     }
     return users;

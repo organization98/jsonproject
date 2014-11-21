@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320A11F41A0FEC8E00194970 /* DetailCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */; };
+		320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCell.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
 		979BC7A71A02D8D1005623F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A61A02D8D1005623F1 /* UIKit.framework */; };
 		979BC7AD1A02D8D1005623F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 979BC7AB1A02D8D1005623F1 /* InfoPlist.strings */; };
 		979BC7AF1A02D8D1005623F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7AE1A02D8D1005623F1 /* main.m */; };
-		979BC7B31A02D8D1005623F1 /* LMLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7B21A02D8D1005623F1 /* LMLAppDelegate.m */; };
+		979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7B21A02D8D1005623F1 /* AppDelegate.m */; };
 		979BC7B61A02D8D1005623F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979BC7B41A02D8D1005623F1 /* Main.storyboard */; };
-		979BC7B91A02D8D1005623F1 /* LMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7B81A02D8D1005623F1 /* LMLViewController.m */; };
+		979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7B81A02D8D1005623F1 /* ViewController.m */; };
 		979BC7BB1A02D8D1005623F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979BC7BA1A02D8D1005623F1 /* Images.xcassets */; };
 		979BC7C21A02D8D1005623F1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7C11A02D8D1005623F1 /* XCTest.framework */; };
 		979BC7C31A02D8D1005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7C41A02D8D1005623F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A61A02D8D1005623F1 /* UIKit.framework */; };
 		979BC7CC1A02D8D1005623F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 979BC7CA1A02D8D1005623F1 /* InfoPlist.strings */; };
 		979BC7CE1A02D8D1005623F1 /* JSONProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7CD1A02D8D1005623F1 /* JSONProjectTests.m */; };
-		979BC7DF1A02E310005623F1 /* LMLCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7DE1A02E310005623F1 /* LMLCustomCell.m */; };
+		979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 979BC7DE1A02E310005623F1 /* CustomCell.m */; };
 		979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6581A03F877004FBB5D /* AFHTTPRequestOperation.m */; };
 		979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA65A1A03F877004FBB5D /* AFHTTPRequestOperationManager.m */; };
 		979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA65C1A03F877004FBB5D /* AFHTTPSessionManager.m */; };
@@ -41,8 +41,8 @@
 		979CA68A1A03F893004FBB5D /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6801A03F893004FBB5D /* UIProgressView+AFNetworking.m */; };
 		979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6821A03F893004FBB5D /* UIRefreshControl+AFNetworking.m */; };
 		979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6841A03F893004FBB5D /* UIWebView+AFNetworking.m */; };
-		979CA68F1A03F938004FBB5D /* LMLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA68E1A03F938004FBB5D /* LMLNetworkManager.m */; };
-		979CA6921A0400F7004FBB5D /* LMLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6911A0400F7004FBB5D /* LMLUser.m */; };
+		979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA68E1A03F938004FBB5D /* NetworkManager.m */; };
+		979CA6921A0400F7004FBB5D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6911A0400F7004FBB5D /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		320A11F21A0FEC8E00194970 /* DetailCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCustomCellTableViewCell.h; sourceTree = "<group>"; };
-		320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCustomCellTableViewCell.m; sourceTree = "<group>"; };
+		320A11F21A0FEC8E00194970 /* DetailCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCustomCell.h; sourceTree = "<group>"; };
+		320A11F31A0FEC8E00194970 /* DetailCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCustomCell.m; sourceTree = "<group>"; };
 		324C26561A077D4C00C7FFE1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,19 +68,19 @@
 		979BC7AC1A02D8D1005623F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		979BC7AE1A02D8D1005623F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		979BC7B01A02D8D1005623F1 /* JSONProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSONProject-Prefix.pch"; sourceTree = "<group>"; };
-		979BC7B11A02D8D1005623F1 /* LMLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMLAppDelegate.h; sourceTree = "<group>"; };
-		979BC7B21A02D8D1005623F1 /* LMLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMLAppDelegate.m; sourceTree = "<group>"; };
+		979BC7B11A02D8D1005623F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		979BC7B21A02D8D1005623F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		979BC7B51A02D8D1005623F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		979BC7B71A02D8D1005623F1 /* LMLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMLViewController.h; sourceTree = "<group>"; };
-		979BC7B81A02D8D1005623F1 /* LMLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMLViewController.m; sourceTree = "<group>"; };
+		979BC7B71A02D8D1005623F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		979BC7B81A02D8D1005623F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		979BC7BA1A02D8D1005623F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		979BC7C01A02D8D1005623F1 /* JSONProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		979BC7C11A02D8D1005623F1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		979BC7C91A02D8D1005623F1 /* JSONProjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSONProjectTests-Info.plist"; sourceTree = "<group>"; };
 		979BC7CB1A02D8D1005623F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		979BC7CD1A02D8D1005623F1 /* JSONProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONProjectTests.m; sourceTree = "<group>"; };
-		979BC7DD1A02E310005623F1 /* LMLCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLCustomCell.h; path = ../LMLCustomCell.h; sourceTree = "<group>"; };
-		979BC7DE1A02E310005623F1 /* LMLCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLCustomCell.m; path = ../LMLCustomCell.m; sourceTree = "<group>"; };
+		979BC7DD1A02E310005623F1 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = ../CustomCell.h; sourceTree = "<group>"; };
+		979BC7DE1A02E310005623F1 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = ../CustomCell.m; sourceTree = "<group>"; };
 		979CA6571A03F877004FBB5D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		979CA6581A03F877004FBB5D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		979CA6591A03F877004FBB5D /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -117,10 +117,10 @@
 		979CA6821A03F893004FBB5D /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		979CA6831A03F893004FBB5D /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		979CA6841A03F893004FBB5D /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		979CA68D1A03F938004FBB5D /* LMLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLNetworkManager.h; sourceTree = "<group>"; };
-		979CA68E1A03F938004FBB5D /* LMLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLNetworkManager.m; sourceTree = "<group>"; };
-		979CA6901A0400F6004FBB5D /* LMLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLUser.h; path = ../LMLUser.h; sourceTree = "<group>"; };
-		979CA6911A0400F7004FBB5D /* LMLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLUser.m; path = ../LMLUser.m; sourceTree = "<group>"; };
+		979CA68D1A03F938004FBB5D /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		979CA68E1A03F938004FBB5D /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		979CA6901A0400F6004FBB5D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		979CA6911A0400F7004FBB5D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +150,8 @@
 		324D06711A08E8F6000E5A59 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				979CA6901A0400F6004FBB5D /* LMLUser.h */,
-				979CA6911A0400F7004FBB5D /* LMLUser.m */,
+				979CA6901A0400F6004FBB5D /* User.h */,
+				979CA6911A0400F7004FBB5D /* User.m */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -159,10 +159,10 @@
 		324D06721A08E933000E5A59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				979BC7DD1A02E310005623F1 /* LMLCustomCell.h */,
-				979BC7DE1A02E310005623F1 /* LMLCustomCell.m */,
-				320A11F21A0FEC8E00194970 /* DetailCustomCellTableViewCell.h */,
-				320A11F31A0FEC8E00194970 /* DetailCustomCellTableViewCell.m */,
+				979BC7DD1A02E310005623F1 /* CustomCell.h */,
+				979BC7DE1A02E310005623F1 /* CustomCell.m */,
+				320A11F21A0FEC8E00194970 /* DetailCustomCell.h */,
+				320A11F31A0FEC8E00194970 /* DetailCustomCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -170,8 +170,8 @@
 		324D06731A08E953000E5A59 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				979BC7B71A02D8D1005623F1 /* LMLViewController.h */,
-				979BC7B81A02D8D1005623F1 /* LMLViewController.m */,
+				979BC7B71A02D8D1005623F1 /* ViewController.h */,
+				979BC7B81A02D8D1005623F1 /* ViewController.m */,
 				324C26561A077D4C00C7FFE1 /* DetailViewController.h */,
 				324C26571A077D4C00C7FFE1 /* DetailViewController.m */,
 			);
@@ -181,8 +181,8 @@
 		324D06741A08E97C000E5A59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				979CA68D1A03F938004FBB5D /* LMLNetworkManager.h */,
-				979CA68E1A03F938004FBB5D /* LMLNetworkManager.m */,
+				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
+				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -226,8 +226,8 @@
 				324D06721A08E933000E5A59 /* Views */,
 				324D06731A08E953000E5A59 /* Controllers */,
 				324D06741A08E97C000E5A59 /* Models */,
-				979BC7B11A02D8D1005623F1 /* LMLAppDelegate.h */,
-				979BC7B21A02D8D1005623F1 /* LMLAppDelegate.m */,
+				979BC7B11A02D8D1005623F1 /* AppDelegate.h */,
+				979BC7B21A02D8D1005623F1 /* AppDelegate.m */,
 				979BC7B41A02D8D1005623F1 /* Main.storyboard */,
 				979BC7BA1A02D8D1005623F1 /* Images.xcassets */,
 				979BC7A91A02D8D1005623F1 /* Supporting Files */,
@@ -417,24 +417,24 @@
 				979CA6881A03F893004FBB5D /* UIButton+AFNetworking.m in Sources */,
 				979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */,
 				979CA6871A03F893004FBB5D /* UIAlertView+AFNetworking.m in Sources */,
-				979BC7B31A02D8D1005623F1 /* LMLAppDelegate.m in Sources */,
+				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
 				979CA66E1A03F877004FBB5D /* AFSecurityPolicy.m in Sources */,
-				979CA68F1A03F938004FBB5D /* LMLNetworkManager.m in Sources */,
-				979BC7B91A02D8D1005623F1 /* LMLViewController.m in Sources */,
+				979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */,
+				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
 				979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */,
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
 				979CA6891A03F893004FBB5D /* UIImageView+AFNetworking.m in Sources */,
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
 				979CA6861A03F893004FBB5D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				979BC7DF1A02E310005623F1 /* LMLCustomCell.m in Sources */,
+				979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */,
 				979CA6701A03F877004FBB5D /* AFURLRequestSerialization.m in Sources */,
 				979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */,
 				979CA66D1A03F877004FBB5D /* AFNetworkReachabilityManager.m in Sources */,
 				979CA6711A03F877004FBB5D /* AFURLResponseSerialization.m in Sources */,
 				979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */,
-				320A11F41A0FEC8E00194970 /* DetailCustomCellTableViewCell.m in Sources */,
-				979CA6921A0400F7004FBB5D /* LMLUser.m in Sources */,
+				320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */,
+				979CA6921A0400F7004FBB5D /* User.m in Sources */,
 				979CA6721A03F877004FBB5D /* AFURLSessionManager.m in Sources */,
 				979CA6851A03F893004FBB5D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				979BC7AF1A02D8D1005623F1 /* main.m in Sources */,

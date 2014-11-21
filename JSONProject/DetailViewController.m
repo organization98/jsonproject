@@ -7,9 +7,9 @@
 //
 
 #import "DetailViewController.h"
-#import "LMLUser.h"
-#import "DetailCustomCellTableViewCell.h"
-#import "LMLNetworkManager.h"
+#import "User.h"
+#import "DetailCustomCell.h"
+#import "NetworkManager.h"
 
 
 @interface DetailViewController ()
@@ -21,9 +21,6 @@
     NSMutableArray *sections;
     NSMutableArray *sectionNames;
     NSMutableDictionary *fields;
-    
-    UITextField *activeField;
-    CGRect cellRect;
 }
 
 
@@ -31,9 +28,9 @@
     
     [super viewDidLoad];
     
-    self.navigationItem.title = self.detail.name;
+    self.navigationItem.title = self.curretUser.name;
     
-    self.params = [self.detail dictionaryFromFullUser];
+    self.params = [self.curretUser dictionaryFromFullUser];
     
     sections = [[NSMutableArray alloc] init];
     sectionNames = [[NSMutableArray alloc] init];
@@ -41,14 +38,16 @@
         [sections addObject:[self.params objectForKey:dictionary]];
         [sectionNames addObject:dictionary];
     }
+    
     [self.fullUserInfoView reloadData];
     
-    fields = [[NSMutableDictionary alloc] init];
+    fields = [[NSMutableDictionary alloc] init]; // заполняем Dictionary для сохранения изменений
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    // подписывемся на 2 нотификациии
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil]; // подписка на notification для UIKeyboardWillShowNotification
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil]; // подписка на notification для UIKeyboardWillHideNotification
@@ -83,12 +82,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *indentifier = @"customDetailCell";
+    static NSString *identificator = @"customDetailCell";
     
-    DetailCustomCellTableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:indentifier];
+    DetailCustomCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identificator];
     
     if (!cell) {
-        cell = [tableView dequeueReusableCellWithIdentifier:indentifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:identificator forIndexPath:indexPath];
     }
     
     NSDictionary *parametes = [[NSDictionary alloc] initWithDictionary:[sections objectAtIndex:indexPath.section]];
@@ -98,8 +97,11 @@
     
     cell.labelTitle.text = [NSString stringWithFormat:@"%@:", label];
     cell.textFieldValue.text = text;
+    cell.textFieldValue.delegate = self;
     
     [fields setObject:cell forKey:label];
+    
+    [cell setTextFieldDelegate:self]; // слежение за поведение всех TextField
     
     return cell;
 }
@@ -113,23 +115,39 @@
 }
 
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    DetailCustomCell *cell = (DetailCustomCell *)[[textField superview] superview];
+    // получаем массив indexPath-ов
+    NSArray *indexPath = [self.fullUserInfoView indexPathsForRowsInRect: cell.frame];
+    [self.fullUserInfoView scrollToRowAtIndexPath:indexPath[0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    //self.fullUserInfoView scroll;
+}
+
+
+#pragma mark - Keyboard methods
+
 - (void)keyboardWillShow: (NSNotification *)notification {
     
-    // размер клавиатуры
-    CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey]/*ключ*/ CGRectValue]; // получаем из dictionary фрейм клавиатуры
+    // получаем из dictionary фрейм клавиатуры
+    CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    NSIndexPath *index = self.fullUserInfoView.indexPathForSelectedRow;
-    cellRect = [self.fullUserInfoView rectForRowAtIndexPath:index];
-    NSLog(@"x = %f, y = %f, height = %f, width = %f", cellRect.origin.x, cellRect.origin.y, cellRect.size.height, cellRect.size.width);
+    CGRect tableFrame = self.fullUserInfoView.frame; // получаем фрейм View
+    tableFrame.origin.y = 0;
+    tableFrame.size.height = CGRectGetMaxY(self.view.frame) - keyboardFrame.size.height;
+    self.fullUserInfoView.frame = tableFrame;
     
-//    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
-    
-    //    CGRect searchTextFrame = self.searchTextField.frame;
-    //    [self.searchTextField setFrame:searchTextFrame];
-    
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, cellRect.size.height + keyboardFrame.size.height); //присвоение нового фрейма
-    
-    [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
+//    NSIndexPath *index = self.fullUserInfoView.indexPathForSelectedRow;
+//    cellRect = [self.fullUserInfoView rectForRowAtIndexPath:index];
+//    NSLog(@"x = %f, y = %f, height = %f, width = %f", cellRect.origin.x, cellRect.origin.y, cellRect.size.height, cellRect.size.width);
+//    
+////    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
+//    
+//    //    CGRect searchTextFrame = self.searchTextField.frame;
+//    //    [self.searchTextField setFrame:searchTextFrame];
+//    
+//    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, cellRect.size.height + keyboardFrame.size.height); //присвоение нового фрейма
+//    
+//    [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
     
     // scrollView не скроллился пока клавиатура активна
     //    [self.scrollView setScrollEnabled:NO];
@@ -146,12 +164,12 @@
 }
 
 
+#pragma mark - Save button
+
 - (IBAction)buttonSaveItem:(UIBarButtonItem *)sender {
     
     for (NSString *key in fields) {
-        DetailCustomCellTableViewCell *cell = [fields objectForKey:key];
-        NSLog(@"label: %@\t\tvalue: %@", cell.labelTitle.text, cell.textFieldValue.text);
-        activeField = cell.textFieldValue;
+        DetailCustomCell *cell = [fields objectForKey:key];
     }
 }
 

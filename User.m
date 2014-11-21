@@ -1,20 +1,20 @@
 //
-//  LMLUser.m
+//  User.m
 //  JSONProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
 //  Copyright (c) 2014 Dmitriy Demchenko. All rights reserved.
 //
 
-#import "LMLUser.h"
+#import "User.h"
 
 
-@implementation LMLUser
+@implementation User
 
 
-+ (LMLUser *)userFromDictionary:(NSDictionary *)dictionary {
++ (User *)userFromDictionary:(NSDictionary *)dictionary {
     
-    LMLUser *user = [[LMLUser alloc] init];
+    User *user = [[User alloc] init];
     
     user.name = [dictionary objectForKey:@"name"];
     user.username = [dictionary objectForKey:@"username"];

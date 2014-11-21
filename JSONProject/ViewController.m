@@ -1,20 +1,20 @@
 //
-//  LMLViewController.m
+//  ViewController.m
 //  JSONProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
 //  Copyright (c) 2014 Dmitriy Demchenko. All rights reserved.
 //
 
-#import "LMLViewController.h"
+#import "ViewController.h"
 #import "DetailViewController.h"
 
 
-@interface LMLViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation LMLViewController
+@implementation ViewController
 
 
 - (void)viewDidLoad {
@@ -25,7 +25,7 @@
     
     NSURL *url = [NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"];
     
-    [[LMLNetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
+    [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
         self.usersArray = [NSMutableArray arrayWithArray:data];
         
         self.searchArray = [NSArray arrayWithArray:data];
@@ -59,8 +59,8 @@
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LMLCustomCell* cell = [tableView dequeueReusableCellWithIdentifier: @"Cell" forIndexPath:indexPath];
-    LMLUser* user = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell" forIndexPath:indexPath];
+    User* user = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
     
     cell.firstAndLastNameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
     cell.phoneNumberLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
@@ -79,8 +79,8 @@
     
     NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
     if (indexPath) {
-        LMLUser *item = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
-        [segue.destinationViewController setDetail:item]; // передача данных в DetailViewController
+        User *item = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
+        [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
     }
 }
 
@@ -117,13 +117,13 @@
 
 - (IBAction)saveButton:(id)sender {
     
-    LMLUser* user = [[LMLUser alloc]init];
+    User* user = [[User alloc]init];
     user.name = @"Kate White";
     user.username = @"Katy W";
     user.email = @"magazine@mail.dp.ua";
     user.phone = @"056-792-00-00";
     user.website = @"magazine.dp.ua";
-    [[LMLNetworkManager sharedManager] saveUser:user completion:^(BOOL succes, id data, NSError *error) {
+    [[NetworkManager sharedManager] saveUser:user completion:^(BOOL succes, id data, NSError *error) {
         [self.usersArray addObject:data];
         [self.mainTableView reloadData];
     }];

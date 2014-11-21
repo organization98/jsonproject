@@ -1,5 +1,5 @@
 //
-//  LMLCustomCell.h
+//  CustomCell.h
 //  JSONProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface LMLCustomCell : UITableViewCell
+
+@interface CustomCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *firstAndLastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;

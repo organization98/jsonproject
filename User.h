@@ -1,5 +1,5 @@
 //
-//  LMLUser.h
+//  User.h
 //  JSONProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LMLUser : NSObject
+@interface User : NSObject
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *username;
@@ -18,7 +18,7 @@
 @property (strong, nonatomic) NSDictionary *address;
 @property (strong, nonatomic) NSDictionary *company;
 
-+ (LMLUser *)userFromDictionary:(NSDictionary *)dictionary;
++ (User *)userFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryFromUser;
 - (NSDictionary *)dictionaryFromFullUser;
 

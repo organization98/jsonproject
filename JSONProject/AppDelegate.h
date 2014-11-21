@@ -1,5 +1,5 @@
 //
-//  LMLAppDelegate.h
+//  AppDelegate.h
 //  JSONProject
 //
 //  Created by Dmitriy Demchenko on 10/30/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LMLAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
