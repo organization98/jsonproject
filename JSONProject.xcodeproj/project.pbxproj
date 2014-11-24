@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCell.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
+		32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32585C1A1A239C9A00E52850 /* CoreData.framework */; };
+		32585C1E1A239D5000E52850 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1D1A239D5000E52850 /* CoreDataManager.m */; };
+		32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */; };
+		32585C371A23AA9500E52850 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C361A23AA9500E52850 /* Albums.m */; };
+		32585C3A1A23AA9600E52850 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C391A23AA9600E52850 /* User.m */; };
+		32585C3D1A23AA9600E52850 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C3C1A23AA9600E52850 /* Address.m */; };
+		32585C401A23AA9600E52850 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C3F1A23AA9600E52850 /* Company.m */; };
+		32585C431A23AA9600E52850 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C421A23AA9600E52850 /* Photos.m */; };
+		32585C461A23AA9600E52850 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C451A23AA9600E52850 /* Geo.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
 		979BC7A71A02D8D1005623F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A61A02D8D1005623F1 /* UIKit.framework */; };
@@ -42,7 +51,6 @@
 		979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6821A03F893004FBB5D /* UIRefreshControl+AFNetworking.m */; };
 		979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6841A03F893004FBB5D /* UIWebView+AFNetworking.m */; };
 		979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA68E1A03F938004FBB5D /* NetworkManager.m */; };
-		979CA6921A0400F7004FBB5D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CA6911A0400F7004FBB5D /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +68,22 @@
 		320A11F31A0FEC8E00194970 /* DetailCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCustomCell.m; sourceTree = "<group>"; };
 		324C26561A077D4C00C7FFE1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		32585C1A1A239C9A00E52850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32585C1C1A239D5000E52850 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ../../Desktop/CoreDataManager.h; sourceTree = "<group>"; };
+		32585C1D1A239D5000E52850 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ../../Desktop/CoreDataManager.m; sourceTree = "<group>"; };
+		32585C201A239F4600E52850 /* JSONProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSONProject.xcdatamodel; sourceTree = "<group>"; };
+		32585C351A23AA9500E52850 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
+		32585C361A23AA9500E52850 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
+		32585C381A23AA9600E52850 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		32585C391A23AA9600E52850 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		32585C3B1A23AA9600E52850 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		32585C3C1A23AA9600E52850 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		32585C3E1A23AA9600E52850 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		32585C3F1A23AA9600E52850 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		32585C411A23AA9600E52850 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		32585C421A23AA9600E52850 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		32585C441A23AA9600E52850 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
+		32585C451A23AA9600E52850 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979BC7A21A02D8D0005623F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,8 +143,6 @@
 		979CA6841A03F893004FBB5D /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		979CA68D1A03F938004FBB5D /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		979CA68E1A03F938004FBB5D /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		979CA6901A0400F6004FBB5D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
-		979CA6911A0400F7004FBB5D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */,
 				979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */,
 				979BC7A71A02D8D1005623F1 /* UIKit.framework in Frameworks */,
 				979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */,
@@ -150,8 +173,6 @@
 		324D06711A08E8F6000E5A59 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				979CA6901A0400F6004FBB5D /* User.h */,
-				979CA6911A0400F7004FBB5D /* User.m */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -181,10 +202,32 @@
 		324D06741A08E97C000E5A59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				32585C381A23AA9600E52850 /* User.h */,
+				32585C391A23AA9600E52850 /* User.m */,
+				32585C3B1A23AA9600E52850 /* Address.h */,
+				32585C3C1A23AA9600E52850 /* Address.m */,
+				32585C441A23AA9600E52850 /* Geo.h */,
+				32585C451A23AA9600E52850 /* Geo.m */,
+				32585C3E1A23AA9600E52850 /* Company.h */,
+				32585C3F1A23AA9600E52850 /* Company.m */,
+				32585C351A23AA9500E52850 /* Albums.h */,
+				32585C361A23AA9500E52850 /* Albums.m */,
+				32585C411A23AA9600E52850 /* Photos.h */,
+				32585C421A23AA9600E52850 /* Photos.m */,
+				32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		32585C341A23A8B000E52850 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				32585C1C1A239D5000E52850 /* CoreDataManager.h */,
+				32585C1D1A239D5000E52850 /* CoreDataManager.m */,
 				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
 				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
 			);
-			name = Models;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		979BC7961A02D8D0005623F1 = {
@@ -211,6 +254,7 @@
 		979BC7A11A02D8D0005623F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32585C1A1A239C9A00E52850 /* CoreData.framework */,
 				979BC7A21A02D8D0005623F1 /* Foundation.framework */,
 				979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */,
 				979BC7A61A02D8D1005623F1 /* UIKit.framework */,
@@ -226,6 +270,7 @@
 				324D06721A08E933000E5A59 /* Views */,
 				324D06731A08E953000E5A59 /* Controllers */,
 				324D06741A08E97C000E5A59 /* Models */,
+				32585C341A23A8B000E52850 /* Managers */,
 				979BC7B11A02D8D1005623F1 /* AppDelegate.h */,
 				979BC7B21A02D8D1005623F1 /* AppDelegate.m */,
 				979BC7B41A02D8D1005623F1 /* Main.storyboard */,
@@ -414,12 +459,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				979CA68A1A03F893004FBB5D /* UIProgressView+AFNetworking.m in Sources */,
+				32585C401A23AA9600E52850 /* Company.m in Sources */,
 				979CA6881A03F893004FBB5D /* UIButton+AFNetworking.m in Sources */,
+				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
 				979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */,
 				979CA6871A03F893004FBB5D /* UIAlertView+AFNetworking.m in Sources */,
+				32585C3D1A23AA9600E52850 /* Address.m in Sources */,
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
 				979CA66E1A03F877004FBB5D /* AFSecurityPolicy.m in Sources */,
 				979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */,
+				32585C3A1A23AA9600E52850 /* User.m in Sources */,
 				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
 				979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */,
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
@@ -427,14 +476,17 @@
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
 				979CA6861A03F893004FBB5D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				32585C1E1A239D5000E52850 /* CoreDataManager.m in Sources */,
 				979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */,
 				979CA6701A03F877004FBB5D /* AFURLRequestSerialization.m in Sources */,
 				979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */,
 				979CA66D1A03F877004FBB5D /* AFNetworkReachabilityManager.m in Sources */,
+				32585C371A23AA9500E52850 /* Albums.m in Sources */,
 				979CA6711A03F877004FBB5D /* AFURLResponseSerialization.m in Sources */,
 				979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */,
 				320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */,
-				979CA6921A0400F7004FBB5D /* User.m in Sources */,
+				32585C461A23AA9600E52850 /* Geo.m in Sources */,
+				32585C431A23AA9600E52850 /* Photos.m in Sources */,
 				979CA6721A03F877004FBB5D /* AFURLSessionManager.m in Sources */,
 				979CA6851A03F893004FBB5D /* AFNetworkActivityIndicatorManager.m in Sources */,
 				979BC7AF1A02D8D1005623F1 /* main.m in Sources */,
@@ -654,6 +706,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32585C201A239F4600E52850 /* JSONProject.xcdatamodel */,
+			);
+			currentVersion = 32585C201A239F4600E52850 /* JSONProject.xcdatamodel */;
+			path = JSONProject.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 979BC7971A02D8D0005623F1 /* Project object */;
 }

@@ -149,18 +149,26 @@
 //    
 //    [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
     
-    // scrollView не скроллился пока клавиатура активна
-    //    [self.scrollView setScrollEnabled:NO];
+    
+//    [self.scrollView setScrollEnabled:NO]; // scroll view не скроллился пока клавиатура активна
 }
 
 
 - (void)keyboardWillHide: (NSNotification *)notification {
     
-    CGRect scrollFrame = self.scrollView.frame;
+    CGRect scrollFrame = self.fullUserInfoView.frame;
     
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height);
+    self.fullUserInfoView.contentSize = CGSizeMake(self.fullUserInfoView.contentSize.width, scrollFrame.size.height);
     
-    [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
+    [self.fullUserInfoView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
+    
+    
+    
+//    CGRect scrollFrame = self.scrollView.frame;
+//    
+//    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height);
+//    
+//    [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
 }
 
 

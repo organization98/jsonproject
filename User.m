@@ -16,6 +16,8 @@
     
     User *user = [[User alloc] init];
     
+    NSLog(@"%@", user);
+    
     user.name = [dictionary objectForKey:@"name"];
     user.username = [dictionary objectForKey:@"username"];
     user.email = [dictionary objectForKey:@"email"];
