@@ -49,7 +49,6 @@
     
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     
-    NSLog(@"insertNewObjectForEntityForName CALLED");
     
     user.idUser = [dictionary objectForKey:@"id"];
     user.name = [dictionary objectForKey:@"name"];
@@ -58,60 +57,44 @@
     user.phone = [dictionary objectForKey:@"phone"];
     user.website = [dictionary objectForKey:@"website"];
     
-    /*
-     NSDictionary *company = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"company"]];
-     user.company.name = [company objectForKey:@"name"];
-     user.company.bs = [company objectForKey:@"bs"];
-     user.company.catchPhrase = [company objectForKey:@"catchPhrase"];
-     */
     
     Company *company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     
-    company.name = [dictionary objectForKey:@"name"];
-    company.bs = [dictionary objectForKey:@"bs"];
-    company.catchPhrase = [dictionary objectForKey:@"catchPhrase"];
+    NSDictionary *dictionaryCompany = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"company"]];
     
-    //    NSLog(@"%@", company);
-    
-    /*
-     NSDictionary *address = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"address"]];
-     user.address.street = [address objectForKey:@"street"];
-     user.address.suite = [address objectForKey:@"suite"];
-     user.address.city = [address objectForKey:@"city"];
-     user.address.zipcode = [address objectForKey:@"zipcode"];// id - уточнить
-     */
+    company.name = [dictionaryCompany objectForKey:@"name"];
+    company.bs = [dictionaryCompany objectForKey:@"bs"];
+    company.catchPhrase = [dictionaryCompany objectForKey:@"catchPhrase"];
     
     Address *address = [NSEntityDescription insertNewObjectForEntityForName:@"Address" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     
-    address.street = [dictionary objectForKey:@"street"];
-    address.suite = [dictionary objectForKey:@"suite"];
-    address.city = [dictionary objectForKey:@"city"];
-    address.zipcode = [dictionary objectForKey:@"zipcode"];
+    NSDictionary *dictionaryAddress = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"address"]];
     
-    /*
-     NSDictionary *geo = [NSDictionary dictionaryWithDictionary:[address objectForKey:@"geo"]];
-     user.address.geo.lat = [geo objectForKey:@"lat"];
-     user.address.geo.lng = [geo objectForKey:@"lng"];
-     */
+    address.street = [dictionaryAddress objectForKey:@"street"];
+    address.suite = [dictionaryAddress objectForKey:@"suite"];
+    address.city = [dictionaryAddress objectForKey:@"city"];
+    address.zipcode = [dictionaryAddress objectForKey:@"zipcode"];
+    
     
     Geo *geo = [NSEntityDescription insertNewObjectForEntityForName:@"Geo" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     
-    geo.lat = [dictionary objectForKey:@"lat"];
-    geo.lat = [dictionary objectForKey:@"lng"];
+    NSDictionary *dictionaryGeo = [NSDictionary dictionaryWithDictionary:[dictionaryAddress objectForKey:@"geo"]];
+    geo.lat = [NSNumber numberWithInt:[[dictionaryGeo objectForKey:@"lat"] intValue]];
+    geo.lng = [NSNumber numberWithInt:[[dictionaryGeo objectForKey:@"lng"] intValue]];
+    address.geo = geo;
+    
+    user.company = company;
+    user.address = address;
     
     return user;
 }
 
 
 - (NSDictionary *)dictionaryFromFullUser {
-    NSLog(@"%@", [self.address class]);
-    NSLog(@"%@", [self.address dictionaryFromAddress]);
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
     [dict setObject:[self.address dictionaryFromAddress] forKey:@"address"];
     [dict setObject:[self.company dictionaryFromCompany] forKey:@"company"];
     return dict;
-    NSDictionary *dic = [[NSDictionary alloc] init];
-    return dic;
 }
 
 

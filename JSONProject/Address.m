@@ -25,14 +25,9 @@
     NSDictionary *address =  @{
                                @"city" : self.city,
                                @"street" : self.street,
-                               @"suite": self.suite,
-                               @"geo" : [self.geo dictionaryFromGeo]
+                               @"suite": self.suite
                                };
     return address;
-}
-
-- (void)addUserObject:(User *)value {
-    NSLog(@"addUserObject CALLeD");
 }
 
 @end

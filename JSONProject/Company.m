@@ -29,8 +29,4 @@
     
 }
 
-- (void)addCompanyObject:(User *)value {
-    NSLog(@"addCompanyObject CALLED");
-}
-
 @end
