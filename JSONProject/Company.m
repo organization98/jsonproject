@@ -2,7 +2,7 @@
 //  Company.m
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 11/24/14.
+//  Created by Dmitriy Demchenko on 11/26/14.
 //  Copyright (c) 2014 Home. All rights reserved.
 //
 
@@ -12,9 +12,25 @@
 
 @implementation Company
 
-@dynamic name;
-@dynamic catchPhrase;
 @dynamic bs;
-@dynamic company;
+@dynamic catchPhrase;
+@dynamic name;
+@dynamic user;
+
+- (NSDictionary *)dictionaryFromCompany {
+    
+    NSDictionary *address =  @{
+                               @"name" : self.name,
+                               @"catchPhrase" : self.catchPhrase,
+                               @"bs": self.bs
+                               };
+    return address;
+    
+    
+}
+
+- (void)addCompanyObject:(User *)value {
+    NSLog(@"addCompanyObject CALLED");
+}
 
 @end

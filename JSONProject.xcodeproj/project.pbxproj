@@ -10,14 +10,14 @@
 		320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCell.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
 		32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32585C1A1A239C9A00E52850 /* CoreData.framework */; };
-		32585C1E1A239D5000E52850 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1D1A239D5000E52850 /* CoreDataManager.m */; };
 		32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */; };
-		32585C371A23AA9500E52850 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C361A23AA9500E52850 /* Albums.m */; };
-		32585C3A1A23AA9600E52850 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C391A23AA9600E52850 /* User.m */; };
-		32585C3D1A23AA9600E52850 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C3C1A23AA9600E52850 /* Address.m */; };
-		32585C401A23AA9600E52850 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C3F1A23AA9600E52850 /* Company.m */; };
-		32585C431A23AA9600E52850 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C421A23AA9600E52850 /* Photos.m */; };
-		32585C461A23AA9600E52850 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 32585C451A23AA9600E52850 /* Geo.m */; };
+		326B30B91A2617270079AB47 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30B81A2617270079AB47 /* Company.m */; };
+		326B30BC1A2617280079AB47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30BB1A2617280079AB47 /* User.m */; };
+		326B30BF1A2617280079AB47 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30BE1A2617280079AB47 /* Address.m */; };
+		326B30C21A2617280079AB47 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C11A2617280079AB47 /* Geo.m */; };
+		326B30C51A2617280079AB47 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C41A2617280079AB47 /* Albums.m */; };
+		326B30C81A2617280079AB47 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C71A2617280079AB47 /* Photos.m */; };
+		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
 		979BC7A71A02D8D1005623F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A61A02D8D1005623F1 /* UIKit.framework */; };
@@ -69,21 +69,21 @@
 		324C26561A077D4C00C7FFE1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		32585C1A1A239C9A00E52850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		32585C1C1A239D5000E52850 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ../../Desktop/CoreDataManager.h; sourceTree = "<group>"; };
-		32585C1D1A239D5000E52850 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ../../Desktop/CoreDataManager.m; sourceTree = "<group>"; };
 		32585C201A239F4600E52850 /* JSONProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSONProject.xcdatamodel; sourceTree = "<group>"; };
-		32585C351A23AA9500E52850 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
-		32585C361A23AA9500E52850 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
-		32585C381A23AA9600E52850 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		32585C391A23AA9600E52850 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		32585C3B1A23AA9600E52850 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
-		32585C3C1A23AA9600E52850 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
-		32585C3E1A23AA9600E52850 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		32585C3F1A23AA9600E52850 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
-		32585C411A23AA9600E52850 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
-		32585C421A23AA9600E52850 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
-		32585C441A23AA9600E52850 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
-		32585C451A23AA9600E52850 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
+		326B30B71A2617270079AB47 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		326B30B81A2617270079AB47 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		326B30BA1A2617280079AB47 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		326B30BB1A2617280079AB47 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		326B30BD1A2617280079AB47 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		326B30BE1A2617280079AB47 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		326B30C01A2617280079AB47 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
+		326B30C11A2617280079AB47 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
+		326B30C31A2617280079AB47 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
+		326B30C41A2617280079AB47 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
+		326B30C61A2617280079AB47 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		326B30C71A2617280079AB47 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979BC7A21A02D8D0005623F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,19 +202,19 @@
 		324D06741A08E97C000E5A59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32585C381A23AA9600E52850 /* User.h */,
-				32585C391A23AA9600E52850 /* User.m */,
-				32585C3B1A23AA9600E52850 /* Address.h */,
-				32585C3C1A23AA9600E52850 /* Address.m */,
-				32585C441A23AA9600E52850 /* Geo.h */,
-				32585C451A23AA9600E52850 /* Geo.m */,
-				32585C3E1A23AA9600E52850 /* Company.h */,
-				32585C3F1A23AA9600E52850 /* Company.m */,
-				32585C351A23AA9500E52850 /* Albums.h */,
-				32585C361A23AA9500E52850 /* Albums.m */,
-				32585C411A23AA9600E52850 /* Photos.h */,
-				32585C421A23AA9600E52850 /* Photos.m */,
 				32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */,
+				326B30BA1A2617280079AB47 /* User.h */,
+				326B30BB1A2617280079AB47 /* User.m */,
+				326B30BD1A2617280079AB47 /* Address.h */,
+				326B30BE1A2617280079AB47 /* Address.m */,
+				326B30C61A2617280079AB47 /* Photos.h */,
+				326B30C71A2617280079AB47 /* Photos.m */,
+				326B30C01A2617280079AB47 /* Geo.h */,
+				326B30C11A2617280079AB47 /* Geo.m */,
+				326B30B71A2617270079AB47 /* Company.h */,
+				326B30B81A2617270079AB47 /* Company.m */,
+				326B30C31A2617280079AB47 /* Albums.h */,
+				326B30C41A2617280079AB47 /* Albums.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -222,8 +222,8 @@
 		32585C341A23A8B000E52850 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				32585C1C1A239D5000E52850 /* CoreDataManager.h */,
-				32585C1D1A239D5000E52850 /* CoreDataManager.m */,
+				32D380191A25D6B500A1A11E /* CoreDataManager.h */,
+				32D3801A1A25D6B500A1A11E /* CoreDataManager.m */,
 				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
 				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
 			);
@@ -458,17 +458,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326B30C81A2617280079AB47 /* Photos.m in Sources */,
 				979CA68A1A03F893004FBB5D /* UIProgressView+AFNetworking.m in Sources */,
-				32585C401A23AA9600E52850 /* Company.m in Sources */,
 				979CA6881A03F893004FBB5D /* UIButton+AFNetworking.m in Sources */,
 				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
 				979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */,
 				979CA6871A03F893004FBB5D /* UIAlertView+AFNetworking.m in Sources */,
-				32585C3D1A23AA9600E52850 /* Address.m in Sources */,
+				326B30BF1A2617280079AB47 /* Address.m in Sources */,
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
 				979CA66E1A03F877004FBB5D /* AFSecurityPolicy.m in Sources */,
 				979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */,
-				32585C3A1A23AA9600E52850 /* User.m in Sources */,
+				326B30BC1A2617280079AB47 /* User.m in Sources */,
 				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
 				979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */,
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
@@ -476,19 +476,19 @@
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
 				979CA6861A03F893004FBB5D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				32585C1E1A239D5000E52850 /* CoreDataManager.m in Sources */,
 				979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */,
+				326B30B91A2617270079AB47 /* Company.m in Sources */,
 				979CA6701A03F877004FBB5D /* AFURLRequestSerialization.m in Sources */,
 				979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */,
 				979CA66D1A03F877004FBB5D /* AFNetworkReachabilityManager.m in Sources */,
-				32585C371A23AA9500E52850 /* Albums.m in Sources */,
 				979CA6711A03F877004FBB5D /* AFURLResponseSerialization.m in Sources */,
 				979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */,
 				320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */,
-				32585C461A23AA9600E52850 /* Geo.m in Sources */,
-				32585C431A23AA9600E52850 /* Photos.m in Sources */,
+				32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */,
 				979CA6721A03F877004FBB5D /* AFURLSessionManager.m in Sources */,
+				326B30C21A2617280079AB47 /* Geo.m in Sources */,
 				979CA6851A03F893004FBB5D /* AFNetworkActivityIndicatorManager.m in Sources */,
+				326B30C51A2617280079AB47 /* Albums.m in Sources */,
 				979BC7AF1A02D8D1005623F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

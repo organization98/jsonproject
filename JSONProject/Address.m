@@ -2,7 +2,7 @@
 //  Address.m
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 11/24/14.
+//  Created by Dmitriy Demchenko on 11/26/14.
 //  Copyright (c) 2014 Home. All rights reserved.
 //
 
@@ -13,12 +13,26 @@
 
 @implementation Address
 
+@dynamic city;
 @dynamic street;
 @dynamic suite;
-@dynamic city;
 @dynamic zipcode;
-@dynamic idAddress;
-@dynamic user;
 @dynamic geo;
+@dynamic user;
+
+- (NSDictionary *)dictionaryFromAddress {
+    
+    NSDictionary *address =  @{
+                               @"city" : self.city,
+                               @"street" : self.street,
+                               @"suite": self.suite,
+                               @"geo" : [self.geo dictionaryFromGeo]
+                               };
+    return address;
+}
+
+- (void)addUserObject:(User *)value {
+    NSLog(@"addUserObject CALLeD");
+}
 
 @end

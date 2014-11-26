@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "Company.h"
 
 
 @interface ViewController ()

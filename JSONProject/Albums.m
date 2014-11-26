@@ -2,7 +2,7 @@
 //  Albums.m
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 11/24/14.
+//  Created by Dmitriy Demchenko on 11/26/14.
 //  Copyright (c) 2014 Home. All rights reserved.
 //
 
@@ -14,9 +14,9 @@
 @implementation Albums
 
 @dynamic idAlbums;
-@dynamic userId;
 @dynamic title;
-@dynamic user;
+@dynamic userId;
 @dynamic photos;
+@dynamic user;
 
 @end

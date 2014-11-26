@@ -32,6 +32,8 @@
     
     self.params = [self.curretUser dictionaryFromFullUser];
     
+    NSLog(@"%@", [self.curretUser dictionaryFromFullUser]);
+    
     sections = [[NSMutableArray alloc] init];
     sectionNames = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in self.params) {
