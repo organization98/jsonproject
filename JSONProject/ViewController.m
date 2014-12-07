@@ -19,30 +19,21 @@
 
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    
     self.navigationItem.title = @"Users"; // установка title для Navigation Controller
-    
     NSURL *url = [NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"];
-    
     [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
         self.usersArray = [NSMutableArray arrayWithArray:data];
-        
         self.searchArray = [NSArray arrayWithArray:data];
-        
         [self.mainTableView reloadData];
     }];
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillShow:) /*вызывается этот метод*/ name:UIKeyboardWillShowNotification object:nil]; // oбъявление NSNotificationCenter
     
     [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillHide:) /*вызывается этот метод*/ name:UIKeyboardWillHideNotification object:nil];
-    
-//    [NSNotificationCenter defaultCenter] postNotificationName:@"" object:useR;
 }
 
 
@@ -55,7 +46,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,7 +65,6 @@
     return cell;
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
@@ -85,18 +74,15 @@
     }
 }
 
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self./*usersArray*/searchArray.count;
 }
-
 
 #pragma mark - UITextFieldDelegate
 
@@ -106,13 +92,11 @@
     return YES;
 }
 
-
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.searchTextField resignFirstResponder]; // если начинаем скроллить, - клавиатура убирается
 }
-
 
 #pragma Mark - IBAction
 
@@ -130,7 +114,6 @@
     }];
 }
 
-
 - (void)filterMyUsers {
     if (self.searchTextField.text.length > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH[ch] %@", self.searchTextField.text];
@@ -138,7 +121,6 @@
         [self.mainTableView reloadData];
     }
 }
-
 
 - (void)keyboardWillShow: (NSNotification *)notification {
     
@@ -161,7 +143,6 @@
     //    [self.scrollView setScrollEnabled:NO];
 }
 
-
 - (void)keyboardWillHide: (NSNotification *)notification {
     
     CGRect scrollFrame = self.scrollView.frame;
@@ -170,6 +151,5 @@
     
     [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
 }
-
 
 @end

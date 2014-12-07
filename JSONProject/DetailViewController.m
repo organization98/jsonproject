@@ -32,7 +32,6 @@
     
     self.params = [self.curretUser dictionaryFromFullUser];
     
-    
     sections = [[NSMutableArray alloc] init];
     sectionNames = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in self.params) {
@@ -83,12 +82,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identificator = @"customDetailCell";
-    
-    DetailCustomCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identificator];
+    DetailCustomCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:[DetailCustomCell cellID]];
     
     if (!cell) {
-        cell = [tableView dequeueReusableCellWithIdentifier:identificator forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:[DetailCustomCell cellID] forIndexPath:indexPath];
     }
     
     NSDictionary *parametes = [[NSDictionary alloc] initWithDictionary:[sections objectAtIndex:indexPath.section]];

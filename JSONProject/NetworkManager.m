@@ -12,8 +12,8 @@
 
 @implementation NetworkManager
 
-+ (NetworkManager*) sharedManager {
-    static NetworkManager* manager = nil;
++ (NetworkManager *)sharedManager {
+    static NetworkManager *manager = nil;
     static dispatch_once_t onceTaken;
     dispatch_once (& onceTaken, ^{
         manager = [NetworkManager new];
@@ -23,10 +23,10 @@
 
 //Получение списка пользователей
 - (void)loadDataFromURL:(NSURL *)url completion:(NetworkBlock)block {
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url.absoluteString parameters:nil success:
      ^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSArray* users = [self usersFromData:responseObject];
+         NSArray *users = [self usersFromData:responseObject];
          block (YES, users, nil);
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          //Обработка ошибки
@@ -47,10 +47,10 @@
 }
 
 //Возвращает массив пользователей
-- (NSArray*) usersFromData: (id) data {
-    NSMutableArray* users = [NSMutableArray array];
-    for (NSDictionary* dict in data){
-        User* user = [User userFromDictionary:dict];
+- (NSArray *)usersFromData:(id)data {
+    NSMutableArray *users = [NSMutableArray array];
+    for (NSDictionary *dict in data){
+        User *user = [User userFromDictionary:dict];
         [users addObject:user];
     }
     return users;
