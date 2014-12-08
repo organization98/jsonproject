@@ -8,6 +8,7 @@
 
 #import "Company.h"
 #import "User.h"
+#import "CoreDataManager.h"
 
 
 @implementation Company
@@ -16,6 +17,28 @@
 @dynamic catchPhrase;
 @dynamic name;
 @dynamic user;
+
++ (Company *)companyFromDictionary:(NSDictionary *)dictionary {
+    
+    // проверка : существует ли такой пользователь
+    NSString *nameCompany = [dictionary objectForKey:@"Company"];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", nameCompany];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Company"
+                                              inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+    [request setEntity:entity];
+    [request setPredicate:predicate];
+    NSArray *array = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:nil];
+    Company *company = [array firstObject];
+    if (!company) {
+        company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+//        NSDictionary *dictionaryCompany = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"company"]];
+        company.name = [dictionary objectForKey:@"name"];
+        company.bs = [dictionary objectForKey:@"bs"];
+        company.catchPhrase = [dictionary objectForKey:@"catchPhrase"];
+    }
+    return company;
+}
 
 - (NSDictionary *)dictionaryFromCompany {
     

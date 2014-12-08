@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * lng;
 @property (nonatomic, retain) Address *address;
 
++ (Geo *)geoFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryFromGeo;
 
 @end

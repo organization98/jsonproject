@@ -29,6 +29,7 @@
 - (void)addUser:(NSSet *)values;
 - (void)removeUser:(NSSet *)values;
 
++ (Address *)addressFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryFromAddress;
 
 @end

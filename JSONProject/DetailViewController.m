@@ -32,6 +32,8 @@
     
     self.params = [self.curretUser dictionaryFromFullUser];
     
+    NSLog(@"%@", self.params);
+    
     sections = [[NSMutableArray alloc] init];
     sectionNames = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in self.params) {
@@ -99,7 +101,7 @@
     
     [fields setObject:cell forKey:label];
     
-    [cell setTextFieldDelegate:self]; // слежение за поведение всех TextField
+    [cell setTextFieldDelegate:self]; // слежение за поведением всех TextField
     
     return cell;
 }

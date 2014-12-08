@@ -27,6 +27,7 @@
 - (void)addUser:(NSSet *)values;
 - (void)removeUser:(NSSet *)values;
 
++ (Company *)companyFromDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryFromCompany;
 
 @end
