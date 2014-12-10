@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
-#import "Company.h"
+#import "CoreDataManager.h"
 
 
 @interface ViewController ()
@@ -20,13 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Users"; // установка title для Navigation Controller
-    NSURL *url = [NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"];
-    [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
-        self.usersArray = [NSMutableArray arrayWithArray:data];
-        self.searchArray = [NSArray arrayWithArray:data];
-        [self.mainTableView reloadData];
-    }];
+    [self loadData];
+    self.navigationItem.title = @"Users";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,10 +42,35 @@
     [super didReceiveMemoryWarning];
 }
 
+
+#pragma mark - Table Rows generate
+
+//Получить данные из БД и заполнить массив
+- (void)loadData {
+    
+    self.managerContext = [[CoreDataManager sharedManager] managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:self.managerContext];
+    [request setEntity:entity];
+    
+    self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
+    self.searchArray = [self.managerContext executeFetchRequest:request error:nil];
+}
+
+
+- (void)reloadTable {
+    [self loadData];
+    [self.mainTableView reloadData];
+}
+
+
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell" forIndexPath:indexPath];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     User* user = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
     
     cell.firstAndLastNameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
@@ -65,6 +85,7 @@
     return cell;
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
@@ -74,15 +95,18 @@
     }
 }
 
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self./*usersArray*/searchArray.count;
 }
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -92,13 +116,15 @@
     return YES;
 }
 
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.searchTextField resignFirstResponder]; // если начинаем скроллить, - клавиатура убирается
 }
 
-#pragma Mark - IBAction
+
+/*#pragma Mark - IBAction
 
 - (IBAction)saveButton:(id)sender {
     
@@ -112,7 +138,8 @@
         [self.usersArray addObject:data];
         [self.mainTableView reloadData];
     }];
-}
+}*/
+
 
 - (void)filterMyUsers {
     if (self.searchTextField.text.length > 0) {
@@ -121,6 +148,7 @@
         [self.mainTableView reloadData];
     }
 }
+
 
 - (void)keyboardWillShow: (NSNotification *)notification {
     
@@ -143,7 +171,7 @@
     //    [self.scrollView setScrollEnabled:NO];
 }
 
-- (void)keyboardWillHide: (NSNotification *)notification {
+- (void)keyboardWillHide:(NSNotification *)notification {
     
     CGRect scrollFrame = self.scrollView.frame;
     

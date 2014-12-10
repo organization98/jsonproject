@@ -50,6 +50,9 @@
     user.company = [Company companyFromDictionary:[dictionary objectForKey:@"company"]];
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[dictionary objectForKey:@"geo"]];
+
+    [[CoreDataManager sharedManager] saveContext];
+    
     return user;
 }
 
