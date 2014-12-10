@@ -61,26 +61,6 @@
                                             <outlet property="delegate" destination="vXZ-lx-hvc" id="wTi-Dw-WZL"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="lpz-qe-KW0">
-                                        <rect key="frame" x="20" y="417" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9hg-eH-bBQ"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter text" minimumFontSize="17" clearButtonMode="always" id="j9p-H8-j3S">
-                                        <rect key="frame" x="52" y="413" width="250" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="D8e-IN-E6K"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                             </scrollView>
                             <searchBar contentMode="redraw" id="5YX-Dt-NLp">
@@ -98,7 +78,6 @@
                         <outlet property="mainTableView" destination="ZUv-IU-OCU" id="dX0-q7-daW"/>
                         <outlet property="scrollView" destination="8u6-7J-kUw" id="V0c-aR-t87"/>
                         <outlet property="searchBar" destination="5YX-Dt-NLp" id="30V-Bf-slT"/>
-                        <outlet property="searchTextField" destination="j9p-H8-j3S" id="RYA-rW-nzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

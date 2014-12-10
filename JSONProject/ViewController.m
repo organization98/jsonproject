@@ -26,6 +26,12 @@
     
     defaultTitle = @"Users";
     self.navigationItem.title = defaultTitle;
+    //
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(buttonAddUser:)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveUser:)
+                                                 name:@"saveUser" object:nil];
     
     self.searchBar.delegate = self;
     self.searchBar.returnKeyType = UIReturnKeySearch;
@@ -33,22 +39,45 @@
     [self loadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillShow:) /*вызывается этот метод*/ name:UIKeyboardWillShowNotification object:nil]; // oбъявление NSNotificationCenter
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self /*кто подписывается*/ selector:@selector(keyboardWillHide:) /*вызывается этот метод*/ name:UIKeyboardWillHideNotification object:nil];
-}
-
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self]; // отписка от notification
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - Actions
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
+    if (indexPath) {
+        User *item = [self.usersArray objectAtIndex:indexPath.row];
+        [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
+    }
+}
+
+
+// Добавление нового пользоваателя
+- (void)buttonAddUser:(id)sender {
+    
+    // создаем объкет из User
+    User *userObj = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                  inManagedObjectContext:self.managerContext];
+    
+    DetailViewController *editView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailUser"];
+    
+    // передаем в EditUserController объект userObj
+    [editView setCurretUser:userObj];
+    
+    [self.navigationController pushViewController:editView animated:YES];
+}
+
+
+- (void)saveUser:(NSNotification *)notification {
+    
+    [[CoreDataManager sharedManager] saveContext]; // метод сохранения изменений для EDIT и ADD
+    
+    [self reloadTable];
 }
 
 
@@ -66,7 +95,6 @@
     [request setEntity:entity];
     
     self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
-//    self.searchArray = [self.managerContext executeFetchRequest:request error:nil];
 }
 
 
@@ -76,11 +104,17 @@
 }
 
 
+// получаем кол-во ячеек из usersArray
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.usersArray.count;
+}
+
+
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    User* user = [self.usersArray/*searchArray*/ objectAtIndex:indexPath.row];
+    User* user = [self.usersArray objectAtIndex:indexPath.row];
     
     cell.firstAndLastNameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
     cell.phoneNumberLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
@@ -95,70 +129,31 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
-    if (indexPath) {
-        User *item = [self.usersArray/*searchArray*/ objectAtIndex:indexPath.row];
-        [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
-    }
-}
+#pragma mark - Delete User
 
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.usersArray/*searchArray*/.count;
-}
-
-
-/*#pragma mark - UITextFieldDelegate
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder]; // убирает клавиатуру при нажатии на RETURN
-    [self filterMyUsers];
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
-}*/
+}
 
 
-/*#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.searchTextField resignFirstResponder]; // если начинаем скроллить, - клавиатура убирается
-}*/
-
-
-/*#pragma Mark - IBAction
-
-- (IBAction)saveButton:(id)sender {
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    User* user = [[User alloc]init];
-    user.name = @"Kate White";
-    user.username = @"Katy W";
-    user.email = @"magazine@mail.dp.ua";
-    user.phone = @"056-792-00-00";
-    user.website = @"magazine.dp.ua";
-    [[NetworkManager sharedManager] saveUser:user completion:^(BOOL succes, id data, NSError *error) {
-        [self.usersArray addObject:data];
-        [self.mainTableView reloadData];
-    }];
-}*/
-
-
-/*- (void)filterMyUsers {
-    if (self.searchTextField.text.length > 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH[ch] %@", self.searchTextField.text];
-        self.searchArray = [self.usersArray filteredArrayUsingPredicate:predicate]; // формирование массива
-        [self.mainTableView reloadData];
+    NSManagedObjectContext *context = [[CoreDataManager sharedManager] managedObjectContext];
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        [context deleteObject:[self.usersArray objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if(![context save:&error]){
+            NSLog(@"Can't delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [self reloadTable];
     }
-}*/
+}
 
-//--------------------------------------------
+
 #pragma mark - Search Bar methods
 
 // CancelButton
@@ -187,6 +182,7 @@
     
     [searchBar resignFirstResponder];
 }
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
@@ -217,37 +213,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.searchBar.showsCancelButton = YES;
 }
-//--------------------------------------------
 
 
-- (void)keyboardWillShow: (NSNotification *)notification {
-    
-    // @property (readonly, copy) NSDictionary *userInfo;
-    NSLog(@"%@", notification.userInfo); // положение клавиатуры в пространстве
-    
-    // размер клавиатуры
-    CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey]/*ключ*/ CGRectValue]; // получаем из dictionary фрейм клавиатуры
-    
-    CGRect scrollFrame = self.scrollView.frame; // получаем фрейм скролла
-    
-    //    CGRect searchTextFrame = self.searchTextField.frame;
-    //    [self.searchTextField setFrame:searchTextFrame];
-    
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height + keyboardFrame.size.height); //присвоение нового фрейма
-    
-    [self.scrollView setContentOffset:CGPointMake(0, keyboardFrame.size.height) animated:YES]; // изменение позиции основного фрейма
-    
-    // scrollView не скроллился пока клавиатура активна
-    //    [self.scrollView setScrollEnabled:NO];
+// отписваемся от notification
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification {
-    
-    CGRect scrollFrame = self.scrollView.frame;
-    
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height);
-    
-    [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
-}
 
 @end

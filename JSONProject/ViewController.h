@@ -16,14 +16,10 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSManagedObjectContext *managerContext;
 
-@property (strong, nonatomic) /*NSMutableArray*/NSArray *usersArray;
-@property (strong, nonatomic) NSArray *searchArray;
-
-- (IBAction)saveButton:(id)sender;
+@property (strong, nonatomic) NSArray *usersArray;
 
 @end
