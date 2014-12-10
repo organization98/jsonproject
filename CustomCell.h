@@ -12,8 +12,15 @@
 
 @interface CustomCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *firstAndLastNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *customImageView;
+@property (nonatomic, strong) User *curretUser;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageCustomView;
+
++ (CustomCell *)customCell;
++ (NSString *)cellID;
+//- (void)configForItem:(id)object;
+- (void)configForItem:(User *)user;
 
 @end

@@ -7,19 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCell.h"
-#import "NetworkManager.h"
-#import "User.h"
-
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSManagedObjectContext *managerContext;
-
 @property (strong, nonatomic) NSArray *usersArray;
 
 @end

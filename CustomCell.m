@@ -8,28 +8,52 @@
 
 #import "CustomCell.h"
 
-
 @implementation CustomCell
 
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
++ (CustomCell *)customCell {
+    NSArray* nibArray = [[NSBundle mainBundle]loadNibNamed:[CustomCell cellID]
+                                                     owner:nil
+                                                   options:nil];
+    return nibArray[0];
 }
 
 
-- (void)awakeFromNib {
-    // Initialization code
++ (NSString*) cellID {
+    return NSStringFromClass([CustomCell class]);
 }
 
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
+- (void)configForItem:(User *)user {
+    
+    self.curretUser = user;
+    self.nameLabel.text = [NSString stringWithFormat:@"name: %@", self.curretUser.name];
+    self.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", self.curretUser.phone];
+    
+    // кастомизация ImageView
+    self.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.imageCustomView.layer.borderWidth = 1;
+    self.imageCustomView.clipsToBounds = YES;
+    self.imageCustomView.layer.cornerRadius = 23; // закругление углов
+    //    self.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
+    self.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+ }
 
+/*
+- (void)configForItem:(id)object {
+    
+    NSDictionary *dict = (NSDictionary *)object;
+    
+    self.nameLabel.text = [NSString stringWithFormat:@"name: %@", [dict objectForKey:@"name"]];
+    self.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", [dict objectForKey:@"phone"]];
+    
+    // кастомизация ImageView
+    self.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.imageCustomView.layer.borderWidth = 1;
+    self.imageCustomView.clipsToBounds = YES;
+    self.imageCustomView.layer.cornerRadius = 23; // закругление углов
+    //    self.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
+    self.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+}
+*/
 
 @end

@@ -7,15 +7,11 @@
 //
 
 #import "DetailViewController.h"
-#import "User.h"
 #import "DetailCustomCell.h"
-#import "NetworkManager.h"
-
 
 @interface DetailViewController ()
 
 @end
-
 
 @implementation DetailViewController {
     NSMutableArray *sections;

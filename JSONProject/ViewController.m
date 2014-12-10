@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "DetailViewController.h"
 #import "CoreDataManager.h"
-
+#import "CustomCell.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 
@@ -49,7 +49,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if (indexPath) {
         User *item = [self.usersArray objectAtIndex:indexPath.row];
         [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
@@ -100,7 +100,7 @@
 
 - (void)reloadTable {
     [self loadData];
-    [self.mainTableView reloadData];
+    [self.tableView reloadData];
 }
 
 
@@ -113,17 +113,24 @@
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    User* user = [self.usersArray objectAtIndex:indexPath.row];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell cellID] forIndexPath:indexPath];
     
-    cell.firstAndLastNameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
-    cell.phoneNumberLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
+//    User* user = [self.usersArray objectAtIndex:indexPath.row];
+//    
+//    cell.nameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
+//    cell.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
+//    
+//    // кастомизация ImageView
+//    cell.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
+//    cell.imageCustomView.layer.borderWidth = 1;
+//    
+//    cell.imageCustomView.clipsToBounds = YES;
+//    cell.imageCustomView.layer.cornerRadius = 23; // закругление углов
+//    
+////    cell.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
+//    cell.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    // кастомизация ImageView
-    cell.customImageView.layer.borderColor = [UIColor grayColor].CGColor;
-    cell.customImageView.layer.borderWidth = 1;
-    cell.customImageView.layer.cornerRadius = 5; // закругление углов
-    cell.customImageView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [cell configForItem:[self.usersArray objectAtIndex:indexPath.row]]; // настройки ячейки, реализация в классе CustomCell
     
     return cell;
 }
@@ -203,7 +210,7 @@
     [request setEntity:entity];
     self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
     
-    [self.mainTableView reloadData];
+    [self.tableView reloadData];
 }
 
 
