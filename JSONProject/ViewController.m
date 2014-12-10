@@ -15,13 +15,22 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSString *defaultTitle;
+}
 
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    defaultTitle = @"Users";
+    self.navigationItem.title = defaultTitle;
+    
+    self.searchBar.delegate = self;
+    self.searchBar.returnKeyType = UIReturnKeySearch;
+    
     [self loadData];
-    self.navigationItem.title = @"Users";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,7 +66,7 @@
     [request setEntity:entity];
     
     self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
-    self.searchArray = [self.managerContext executeFetchRequest:request error:nil];
+//    self.searchArray = [self.managerContext executeFetchRequest:request error:nil];
 }
 
 
@@ -71,7 +80,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    User* user = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
+    User* user = [self.usersArray/*searchArray*/ objectAtIndex:indexPath.row];
     
     cell.firstAndLastNameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
     cell.phoneNumberLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
@@ -90,7 +99,7 @@
     
     NSIndexPath *indexPath = [self.mainTableView indexPathForSelectedRow];
     if (indexPath) {
-        User *item = [self./*usersArray*/searchArray objectAtIndex:indexPath.row];
+        User *item = [self.usersArray/*searchArray*/ objectAtIndex:indexPath.row];
         [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
     }
 }
@@ -104,24 +113,24 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self./*usersArray*/searchArray.count;
+    return self.usersArray/*searchArray*/.count;
 }
 
 
-#pragma mark - UITextFieldDelegate
+/*#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder]; // убирает клавиатуру при нажатии на RETURN
     [self filterMyUsers];
     return YES;
-}
+}*/
 
 
-#pragma mark - UIScrollViewDelegate
+/*#pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.searchTextField resignFirstResponder]; // если начинаем скроллить, - клавиатура убирается
-}
+}*/
 
 
 /*#pragma Mark - IBAction
@@ -141,13 +150,74 @@
 }*/
 
 
-- (void)filterMyUsers {
+/*- (void)filterMyUsers {
     if (self.searchTextField.text.length > 0) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH[ch] %@", self.searchTextField.text];
         self.searchArray = [self.usersArray filteredArrayUsingPredicate:predicate]; // формирование массива
         [self.mainTableView reloadData];
     }
+}*/
+
+//--------------------------------------------
+#pragma mark - Search Bar methods
+
+// CancelButton
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    self.searchBar.showsCancelButton = NO;
+    
+    self.searchBar.text = nil;
+    
+    [searchBar resignFirstResponder];
+    
+    self.navigationItem.title = defaultTitle;
+    [self.view endEditing:YES];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
+    
+    [self reloadTable];
 }
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    self.searchBar.showsCancelButton = NO;
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
+    
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if([searchText length] <= 0 ) {
+        [self reloadTable];
+        return;
+    }
+    
+    // поиск в CoreData и вывод в tableView
+    self.managerContext = [[CoreDataManager sharedManager] managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH[ch] %@", searchText];
+    [request setPredicate:predicate];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:self.managerContext];
+    [request setEntity:entity];
+    self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
+    
+    [self.mainTableView reloadData];
+}
+
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    
+    self.navigationItem.title = @"Search";
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.searchBar.showsCancelButton = YES;
+}
+//--------------------------------------------
 
 
 - (void)keyboardWillShow: (NSNotification *)notification {
