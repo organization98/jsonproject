@@ -42,7 +42,7 @@
     [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
         self.usersArray = [NSMutableArray arrayWithArray:data];
         
-        [self loadData];
+        [self.tableView reloadData];
     }];
     
     [self reloadTable];
