@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NetworkManager.h"
 #import "CoreDataManager.h"
 #import "CustomCell.h"
 #import "DetailViewController.h"
@@ -36,7 +37,15 @@
     self.searchBar.delegate = self;
     self.searchBar.returnKeyType = UIReturnKeySearch;
     
-    [self loadData];
+    // где вызывать это ёбаный метод?
+    NSURL *url = [NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"];
+    [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
+        self.usersArray = [NSMutableArray arrayWithArray:data];
+        
+        [self loadData];
+    }];
+    
+    [self reloadTable];
 }
 
 
@@ -175,7 +184,7 @@
     self.navigationItem.title = defaultTitle;
     [self.view endEditing:YES];
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
+//    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
     
     [self reloadTable];
 }
@@ -185,7 +194,7 @@
     
     self.searchBar.showsCancelButton = NO;
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
+//    [self.navigationController setNavigationBarHidden:NO animated:YES]; //
     
     [searchBar resignFirstResponder];
 }
@@ -217,7 +226,7 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     
     self.navigationItem.title = @"Search";
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.searchBar.showsCancelButton = YES;
 }
 
