@@ -20,7 +20,7 @@
 
 + (Company *)companyFromDictionary:(NSDictionary *)dictionary {
     
-    // проверка : существует ли такой пользователь
+    // проверка : существует ли такой Company
     NSString *nameCompany = [dictionary objectForKey:@"Company"];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", nameCompany];
@@ -32,7 +32,6 @@
     Company *company = [array firstObject];
     if (!company) {
         company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
-//        NSDictionary *dictionaryCompany = [NSDictionary dictionaryWithDictionary:[dictionary objectForKey:@"company"]];
         company.name = [dictionary objectForKey:@"name"];
         company.bs = [dictionary objectForKey:@"bs"];
         company.catchPhrase = [dictionary objectForKey:@"catchPhrase"];
@@ -43,13 +42,11 @@
 - (NSDictionary *)dictionaryFromCompany {
     
     NSDictionary *address =  @{
-                               @"name" : self.name,
+                               @"name" :        self.name,
                                @"catchPhrase" : self.catchPhrase,
-                               @"bs": self.bs
+                               @"bs":           self.bs
                                };
     return address;
-    
-    
 }
 
 @end

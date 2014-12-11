@@ -23,7 +23,7 @@
 
 + (Address *)addressFromDictionary:(NSDictionary *)dictionary {
     
-    // проверка : существует ли такой пользователь
+    // проверка : существует ли такой Address
     NSString *streetId = [dictionary objectForKey:@"street"];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"street == %@", streetId];
@@ -46,9 +46,11 @@
 - (NSDictionary *)dictionaryFromAddress {
     
     NSDictionary *address =  @{
-                               @"city" : self.city,
-                               @"street" : self.street,
-                               @"suite": self.suite
+                               @"suite"     : self.suite,
+                               @"street"    : self.street,
+                               @"city"      : self.city,
+                               @"zipcode"   : self.zipcode,
+                               @"geo"       : [NSString stringWithFormat:@"%@ : %@", self.geo.lat, self.geo.lng]
                                };
     return address;
 }

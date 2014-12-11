@@ -28,8 +28,6 @@
     
     self.params = [self.curretUser dictionaryFromFullUser];
     
-    NSLog(@"%@", self.params);
-    
     sections = [[NSMutableArray alloc] init];
     sectionNames = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in self.params) {
@@ -37,12 +35,21 @@
         [sectionNames addObject:dictionary];
     }
     
-    [self.fullUserInfoView reloadData];
+    /*
+    sections = [[NSMutableArray alloc] init];
+    sectionNames = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictionary in self.curretUser) {
+        [sections addObject:[self.curretUser objectForKey:dictionary]];
+        [sectionNames addObject:dictionary];
+    }
+    */
+    
+    [self.detailTableView reloadData];
     
     fields = [[NSMutableDictionary alloc] init]; // заполняем Dictionary для сохранения изменений
 }
 
-
+/*
 - (void)viewWillAppear:(BOOL)animated {
     
     // подписывемся на 2 нотификациии
@@ -50,7 +57,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil]; // подписка на notification для UIKeyboardWillHideNotification
 }
-
+*/
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -93,7 +100,7 @@
     
     cell.labelTitle.text = [NSString stringWithFormat:@"%@:", label];
     cell.textFieldValue.text = text;
-    cell.textFieldValue.delegate = self;
+//    cell.textFieldValue.delegate = self;
     
     [fields setObject:cell forKey:label];
     
@@ -102,7 +109,7 @@
     return cell;
 }
 
-
+/*
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -114,8 +121,8 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     DetailCustomCell *cell = (DetailCustomCell *)[[textField superview] superview];
     // получаем массив indexPath-ов
-    NSArray *indexPath = [self.fullUserInfoView indexPathsForRowsInRect: cell.frame];
-    [self.fullUserInfoView scrollToRowAtIndexPath:indexPath[0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
+    NSArray *indexPath = [self.detailTableView indexPathsForRowsInRect: cell.frame];
+    [self.detailTableView scrollToRowAtIndexPath:indexPath[0] atScrollPosition: UITableViewScrollPositionTop animated:YES];
     //self.fullUserInfoView scroll;
 }
 
@@ -127,10 +134,10 @@
     // получаем из dictionary фрейм клавиатуры
     CGRect keyboardFrame = [notification.userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    CGRect tableFrame = self.fullUserInfoView.frame; // получаем фрейм View
+    CGRect tableFrame = self.detailTableView.frame; // получаем фрейм View
     tableFrame.origin.y = 0;
     tableFrame.size.height = CGRectGetMaxY(self.view.frame) - keyboardFrame.size.height;
-    self.fullUserInfoView.frame = tableFrame;
+    self.detailTableView.frame = tableFrame;
     
 //    NSIndexPath *index = self.fullUserInfoView.indexPathForSelectedRow;
 //    cellRect = [self.fullUserInfoView rectForRowAtIndexPath:index];
@@ -152,11 +159,11 @@
 
 - (void)keyboardWillHide: (NSNotification *)notification {
     
-    CGRect scrollFrame = self.fullUserInfoView.frame;
+    CGRect scrollFrame = self.detailTableView.frame;
     
-    self.fullUserInfoView.contentSize = CGSizeMake(self.fullUserInfoView.contentSize.width, scrollFrame.size.height);
+    self.detailTableView.contentSize = CGSizeMake(self.detailTableView.contentSize.width, scrollFrame.size.height);
     
-    [self.fullUserInfoView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
+    [self.detailTableView setContentOffset:CGPointZero animated:YES]; // возврат фрейма в исходное положение
     
     
     
@@ -164,9 +171,9 @@
 //    
 //    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, scrollFrame.size.height);
 //    
-//    [self.scrollView setContentOffset:/*CGPointMake(0, 0)*/CGPointZero animated:YES]; // возврат фрейма в исходное положение
+//    [self.scrollView setContentOffset:CGPointZero animated:YES]; // возврат фрейма в исходное положение
 }
-
+*/
 
 #pragma mark - Save button
 
@@ -175,6 +182,11 @@
     for (NSString *key in fields) {
         DetailCustomCell *cell = [fields objectForKey:key];
     }
+    // генерируем событие
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveUser" object:nil];
+    
+    // вернуться на главный контроллер
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

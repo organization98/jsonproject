@@ -50,29 +50,39 @@
     user.company = [Company companyFromDictionary:[dictionary objectForKey:@"company"]];
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[dictionary objectForKey:@"geo"]];
-
+    
     [[CoreDataManager sharedManager] saveContext];
     
     return user;
 }
 
-- (NSDictionary *)dictionaryFromFullUser {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
-    [dict setObject:[self.address dictionaryFromAddress] forKey:@"address"];
-//    [dict setObject:[self.address.geo dictionaryFromGeo] forKey:@"geo"];
-    [dict setObject:[self.company dictionaryFromCompany] forKey:@"company"];
-    return dict;
-}
-
 - (NSDictionary *)dictionaryFromUser {
     
     NSDictionary *dict =  @{
-                            @"name" : self.name,
+                            @"id"       : [NSString stringWithFormat:@"%@", self.idUser],
+                            @"name"     : self.name,
                             @"username" : self.username,
-                            @"email": self.email,
-                            @"phone" : self.phone,
-                            @"website":self.website
+                            @"phone"    : self.phone,
+                            @"email"    : self.email,
+                            @"website"  : self.website
                             };
+    
+    /*
+     @property (nonatomic, retain) NSNumber * idUser;
+     */
+    
+    return dict;
+}
+
+- (NSDictionary *)dictionaryFromFullUser {
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    [dict setObject:self.dictionaryFromUser forKey:@"general"];
+    [dict setObject:[self.address dictionaryFromAddress] forKey:@"address"];
+//    [dict setObject:[self.address.geo dictionaryFromGeo] forKey:@"geo"];
+    [dict setObject:[self.company dictionaryFromCompany] forKey:@"company"];
+    
     return dict;
 }
 

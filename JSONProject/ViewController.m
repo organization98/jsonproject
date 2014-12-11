@@ -51,8 +51,8 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if (indexPath) {
-        User *item = [self.usersArray objectAtIndex:indexPath.row];
-        [segue.destinationViewController setCurretUser:item]; // передача данных в DetailViewController
+        User *curretnUser = [self.usersArray objectAtIndex:indexPath.row];
+        [segue.destinationViewController setCurretUser:curretnUser]; // передача данных в DetailViewController
     }
 }
 

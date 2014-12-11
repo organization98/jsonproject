@@ -25,7 +25,7 @@
 // methods added
 - (void)configurateForUser:(User *)user {
     
-    self.curretUser = user;
+//    self.curretUser = user;
     //    self.usernameLabel.text = self.curretUser.name;
     //    self.companyLabel.text = self.curretUser.company.name;
     //

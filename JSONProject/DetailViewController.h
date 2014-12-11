@@ -16,7 +16,7 @@
 @property (strong,nonatomic) NSDictionary *params;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITableView *fullUserInfoView;
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView; //*fullUserInfoView;
 
 - (IBAction)buttonSaveItem:(UIBarButtonItem *)sender;
 

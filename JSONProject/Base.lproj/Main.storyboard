@@ -63,7 +63,6 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="4i1-EN-6VC"/>
@@ -122,7 +121,8 @@
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
-                                            <outlet property="dataSource" destination="Eck-lj-wRE" id="jCq-C7-vyl"/>
+                                            <outlet property="dataSource" destination="Eck-lj-wRE" id="Ehe-wL-bGC"/>
+                                            <outlet property="delegate" destination="Eck-lj-wRE" id="dxL-l8-xpm"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -139,7 +139,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="fullUserInfoView" destination="k9Q-zR-Srg" id="WSg-No-b1K"/>
+                        <outlet property="detailTableView" destination="k9Q-zR-Srg" id="FEw-nd-bY1"/>
                         <outlet property="scrollView" destination="RDC-Bm-s7T" id="gkk-Jr-9O2"/>
                     </connections>
                 </viewController>
