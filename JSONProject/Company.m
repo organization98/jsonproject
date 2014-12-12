@@ -28,13 +28,25 @@
                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     [request setEntity:entity];
     [request setPredicate:predicate];
-    NSArray *array = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:nil];
-    Company *company = [array firstObject];
-    if (!company) {
-        company = [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
-        company.name = [dictionary objectForKey:@"name"];
-        company.bs = [dictionary objectForKey:@"bs"];
-        company.catchPhrase = [dictionary objectForKey:@"catchPhrase"];
+    NSError *error;
+    NSArray *result = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    Company *company = nil;
+    if ([result count]) {
+        company = [result objectAtIndex:0];
+    } else {
+        company = [NSEntityDescription insertNewObjectForEntityForName:@"Company"
+                                             inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+    }
+    company.name = [dictionary objectForKey:@"name"];
+    company.bs = [dictionary objectForKey:@"bs"];
+    company.catchPhrase = [dictionary objectForKey:@"catchPhrase"];
+    
+    [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
     }
     return company;
 }
@@ -42,9 +54,9 @@
 - (NSDictionary *)dictionaryFromCompany {
     
     NSDictionary *address =  @{
-                               @"name" :        self.name,
-                               @"catchPhrase" : self.catchPhrase,
-                               @"bs":           self.bs
+                               @"name"          : self.name,
+                               @"catchPhrase"   : self.catchPhrase,
+                               @"bs"            : self.bs
                                };
     return address;
 }

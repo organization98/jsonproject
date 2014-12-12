@@ -31,14 +31,26 @@
                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     [request setEntity:entity];
     [request setPredicate:predicate];
-    NSArray *array = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:nil];
-    Address *address = [array firstObject];
-    if (!address) {
-        address = [NSEntityDescription insertNewObjectForEntityForName:@"Address" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
-        address.street = [dictionary objectForKey:@"street"];
-        address.suite = [dictionary objectForKey:@"suite"];
-        address.city = [dictionary objectForKey:@"city"];
-        address.zipcode = [dictionary objectForKey:@"zipcode"];
+    NSError *error;
+    NSArray *result = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    Address *address = nil;
+    if ([result count]) {
+        address = [result objectAtIndex:0];
+    } else {
+        address = [NSEntityDescription insertNewObjectForEntityForName:@"Address"
+                                             inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+    }
+    address.street = [dictionary objectForKey:@"street"];
+    address.suite = [dictionary objectForKey:@"suite"];
+    address.city = [dictionary objectForKey:@"city"];
+    address.zipcode = [dictionary objectForKey:@"zipcode"];
+    
+    [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
     }
     return address;
 }

@@ -26,12 +26,24 @@
                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     [request setEntity:entity];
     [request setPredicate:predicate];
-    NSArray *array = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:nil];
-    Geo *geo = [array firstObject];
-    if (!geo) {
-        geo = [NSEntityDescription insertNewObjectForEntityForName:@"Geo" inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
-        geo.lat = [NSNumber numberWithInt:[[dictionary objectForKey:@"lat"] intValue]];
-        geo.lng = [NSNumber numberWithInt:[[dictionary objectForKey:@"lng"] intValue]];
+    NSError *error;
+    NSArray *result = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    Geo *geo = nil;
+    if ([result count]) {
+        geo = [result objectAtIndex:0];
+    } else {
+        geo = [NSEntityDescription insertNewObjectForEntityForName:@"Geo"
+                                             inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+    }
+    geo.lat = [NSNumber numberWithInt:[[dictionary objectForKey:@"lat"] intValue]];
+    geo.lng = [NSNumber numberWithInt:[[dictionary objectForKey:@"lng"] intValue]];
+    
+    [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
     }
     return geo;
 }

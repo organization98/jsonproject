@@ -8,11 +8,11 @@
 
 #import "User.h"
 #import "Address.h"
-#import "Albums.h"
-#import "Company.h"
-#import "CoreDataManager.h"
 #import "Geo.h"
-
+#import "Company.h"
+#import "Albums.h"
+#import "CoreDataManager.h"
+#import "NetworkManager.h"
 
 @implementation User
 
@@ -34,24 +34,32 @@
                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     [request setEntity:entity];
     [request setPredicate:predicate];
-    NSArray *array = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:nil];
-    User *user = [array firstObject];
-    if (!user) {
+    NSError *error;
+    NSArray *result = [[[CoreDataManager sharedManager] managedObjectContext] executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    User *user = nil;
+    if ([result count]) {
+        user = [result objectAtIndex:0];
+    } else {
         user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                              inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
-        user.idUser = [dictionary objectForKey:@"id"];
-        user.name = [dictionary objectForKey:@"name"];
-        user.username = [dictionary objectForKey:@"username"];
-        user.email = [dictionary objectForKey:@"email"];
-        user.phone = [dictionary objectForKey:@"phone"];
-        user.website = [dictionary objectForKey:@"website"];
     }
+    user.idUser = [dictionary objectForKey:@"id"];
+    user.name = [dictionary objectForKey:@"name"];
+    user.username = [dictionary objectForKey:@"username"];
+    user.email = [dictionary objectForKey:@"email"];
+    user.phone = [dictionary objectForKey:@"phone"];
+    user.website = [dictionary objectForKey:@"website"];
     
+    [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     user.company = [Company companyFromDictionary:[dictionary objectForKey:@"company"]];
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[dictionary objectForKey:@"geo"]];
-    
-    [[CoreDataManager sharedManager] saveContext];
     
     return user;
 }
@@ -66,11 +74,6 @@
                             @"email"    : self.email,
                             @"website"  : self.website
                             };
-    
-    /*
-     @property (nonatomic, retain) NSNumber * idUser;
-     */
-    
     return dict;
 }
 

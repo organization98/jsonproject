@@ -13,7 +13,7 @@
 #import "DetailViewController.h"
 
 @interface ViewController ()
-
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation ViewController {
@@ -37,15 +37,7 @@
     self.searchBar.delegate = self;
     self.searchBar.returnKeyType = UIReturnKeySearch;
     
-    // где вызывать это ёбаный метод?
-    NSURL *url = [NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"];
-    [[NetworkManager sharedManager] loadDataFromURL:url completion:^(BOOL succes, id data, NSError *error) {
-        self.usersArray = [NSMutableArray arrayWithArray:data];
-        
-        [self.tableView reloadData];
-    }];
-    
-    [self reloadTable];
+    [self loadData];
 }
 
 
@@ -60,7 +52,7 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     if (indexPath) {
-        User *curretnUser = [self.usersArray objectAtIndex:indexPath.row];
+        User *curretnUser = [self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
         [segue.destinationViewController setCurretUser:curretnUser]; // передача данных в DetailViewController
     }
 }
@@ -70,13 +62,13 @@
 - (void)buttonAddUser:(id)sender {
     
     // создаем объкет из User
-    User *userObj = [NSEntityDescription insertNewObjectForEntityForName:@"User"
-                                                  inManagedObjectContext:self.managerContext];
+    User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                                  inManagedObjectContext:self.managedObjectContext];
     
     DetailViewController *editView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailUser"];
     
     // передаем в EditUserController объект userObj
-    [editView setCurretUser:userObj];
+    [editView setCurretUser:user];
     
     [self.navigationController pushViewController:editView animated:YES];
 }
@@ -95,15 +87,24 @@
 //Получить данные из БД и заполнить массив
 - (void)loadData {
     
-    self.managerContext = [[CoreDataManager sharedManager] managedObjectContext];
+    [[NetworkManager sharedManager] loadDataFromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"] completion:^(BOOL succes, id data, NSError *error) {
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
-                                              inManagedObjectContext:self.managerContext];
-    [request setEntity:entity];
-    
-    self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
+        self.managedObjectContext = [CoreDataManager sharedManager].managedObjectContext;
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
+                                                             inManagedObjectContext:self.managedObjectContext];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                         ascending:NO];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        fetchRequest.entity = entityDescription;
+        fetchRequest.sortDescriptors = @[sortDescriptor];
+        
+        NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        fetchedResultsController.delegate = self;
+        self.fetchedResultsController = fetchedResultsController;
+        [self.fetchedResultsController performFetch:nil];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 
@@ -115,32 +116,14 @@
 
 // получаем кол-во ячеек из usersArray
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.usersArray.count;
+    return self.fetchedResultsController.fetchedObjects.count;
 }
 
 
 // заполнение CustomCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:[CustomCell cellID] forIndexPath:indexPath];
-    
-//    User* user = [self.usersArray objectAtIndex:indexPath.row];
-//    
-//    cell.nameLabel.text = [NSString stringWithFormat:@"name: %@", user.name];
-//    cell.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", user.phone];
-//    
-//    // кастомизация ImageView
-//    cell.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
-//    cell.imageCustomView.layer.borderWidth = 1;
-//    
-//    cell.imageCustomView.clipsToBounds = YES;
-//    cell.imageCustomView.layer.cornerRadius = 23; // закругление углов
-//    
-////    cell.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
-//    cell.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    [cell configForItem:[self.usersArray objectAtIndex:indexPath.row]]; // настройки ячейки, реализация в классе CustomCell
-    
+    [cell configForItem:[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -157,7 +140,7 @@
     NSManagedObjectContext *context = [[CoreDataManager sharedManager] managedObjectContext];
     
     if (editingStyle == UITableViewCellEditingStyleDelete){
-        [context deleteObject:[self.usersArray objectAtIndex:indexPath.row]];
+        [context deleteObject:[self.fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
         if(![context save:&error]){
@@ -208,16 +191,16 @@
     }
     
     // поиск в CoreData и вывод в tableView
-    self.managerContext = [[CoreDataManager sharedManager] managedObjectContext];
+    self.managedObjectContext = [[CoreDataManager sharedManager] managedObjectContext];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH[ch] %@", searchText];
     [request setPredicate:predicate];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
-                                              inManagedObjectContext:self.managerContext];
+                                              inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
-    self.usersArray = [self.managerContext executeFetchRequest:request error:nil];
+    self.usersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
     
     [self.tableView reloadData];
 }
@@ -234,6 +217,42 @@
 // отписваемся от notification
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 
