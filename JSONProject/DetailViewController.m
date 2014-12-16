@@ -8,10 +8,17 @@
 
 #import "DetailViewController.h"
 #import "DetailCustomCell.h"
+#import "MapViewController.h"
+#import "AlbumViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UITableViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonsCollection;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView; //*fullUserInfoView;
 
 @end
+
 
 @implementation DetailViewController {
     NSMutableArray *sections;
@@ -25,6 +32,21 @@
     [super viewDidLoad];
     
     self.navigationItem.title = self.curretUser.name;
+    
+    
+    // Buttons
+    
+    // создаем кновку SAVE и указываем @selector
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(buttonSaveItem:)];
+    
+    // создаем кновку INFO и указываем @selector
+    UIBarButtonItem *additionalInfoButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(openBarButtonAction:)];
+    
+    // размещаем массив кнопок на navigationItem
+    self.navigationItem.rightBarButtonItems = @[additionalInfoButton, saveButton];
+    
+    //
+    
     
     self.params = [self.curretUser dictionaryFromFullUser];
     
@@ -175,9 +197,9 @@
 }
 */
 
-#pragma mark - Save button
+#pragma mark - Actions
 
-- (IBAction)buttonSaveItem:(UIBarButtonItem *)sender {
+- (void)buttonSaveItem:(UIBarButtonItem *)sender {
     
     for (NSString *key in fields) {
         DetailCustomCell *cell = [fields objectForKey:key];
@@ -187,6 +209,34 @@
     
     // вернуться на главный контроллер
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
+- (void)openBarButtonAction:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@ on map", self.curretUser.name], @"Album gallery",nil];
+    [actionSheet showInView:self.view]; // оттображение на текущем View
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex; {
+    switch (buttonIndex) {
+        case 0:
+            [self performSegueWithIdentifier:@"ShowMap" sender:self];
+            break;
+        case 1:
+            [self performSegueWithIdentifier:@"ShowAlbumGallery" sender:self];
+            break;
+        default:
+            break;
+    }
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MapViewController *mapController = segue.destinationViewController;
+//    mapController. = _detail.link;
+    AlbumViewController *albumController = segue.destinationViewController;
+//    albumController.url = _detail.link;
 }
 
 

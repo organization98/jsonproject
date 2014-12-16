@@ -10,14 +10,9 @@
 #import "User.h"
 
 
-@interface DetailViewController : UIViewController <UITableViewDataSource, UITextFieldDelegate>
+@interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) User *curretUser; //detail
 @property (strong,nonatomic) NSDictionary *params;
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITableView *detailTableView; //*fullUserInfoView;
-
-- (IBAction)buttonSaveItem:(UIBarButtonItem *)sender;
 
 @end

@@ -33,27 +33,27 @@
     self.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
     self.imageCustomView.layer.borderWidth = 1;
     self.imageCustomView.clipsToBounds = YES;
-    self.imageCustomView.layer.cornerRadius = 23; // закругление углов
+    self.imageCustomView.layer.cornerRadius = 24; // закругление углов
     //    self.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
     self.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
  }
 
-/*
-- (void)configForItem:(id)object {
-    
-    NSDictionary *dict = (NSDictionary *)object;
-    
-    self.nameLabel.text = [NSString stringWithFormat:@"name: %@", [dict objectForKey:@"name"]];
-    self.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", [dict objectForKey:@"phone"]];
-    
-    // кастомизация ImageView
-    self.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.imageCustomView.layer.borderWidth = 1;
-    self.imageCustomView.clipsToBounds = YES;
-    self.imageCustomView.layer.cornerRadius = 23; // закругление углов
-    //    self.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
-    self.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-}
-*/
+
+//- (void)configForItem:(id)object {
+//    
+//    NSDictionary *dict = (NSDictionary *)object;
+//    
+//    self.nameLabel.text = [NSString stringWithFormat:@"name: %@", [dict objectForKey:@"name"]];
+//    self.phoneLabel.text = [NSString stringWithFormat:@"phone: %@", [dict objectForKey:@"phone"]];
+//    
+//    // кастомизация ImageView
+//    self.imageCustomView.layer.borderColor = [UIColor grayColor].CGColor;
+//    self.imageCustomView.layer.borderWidth = 1;
+//    self.imageCustomView.clipsToBounds = YES;
+//    self.imageCustomView.layer.cornerRadius = 23; // закругление углов
+//    //    self.imageCustomView.image = [UIImage imageNamed:[dict objectForKey:@"photo"]];
+//    self.imageCustomView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+//}
+
 
 @end

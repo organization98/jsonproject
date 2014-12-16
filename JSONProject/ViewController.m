@@ -37,12 +37,32 @@
     self.searchBar.delegate = self;
     self.searchBar.returnKeyType = UIReturnKeySearch;
     
+    self.managedObjectContext = [CoreDataManager sharedManager].managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                     ascending:NO];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = entityDescription;
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    fetchedResultsController.delegate = self;
+    self.fetchedResultsController = fetchedResultsController;
+    [self.fetchedResultsController performFetch:nil];
+    
     [self loadData];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+// отписваемся от notification
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -82,27 +102,12 @@
 }
 
 
-#pragma mark - Table Rows generate
+#pragma mark - Load data
 
 //Получить данные из БД и заполнить массив
 - (void)loadData {
     
     [[NetworkManager sharedManager] loadDataFromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users"] completion:^(BOOL succes, id data, NSError *error) {
-    
-        self.managedObjectContext = [CoreDataManager sharedManager].managedObjectContext;
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
-                                                             inManagedObjectContext:self.managedObjectContext];
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name"
-                                                                         ascending:NO];
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        fetchRequest.entity = entityDescription;
-        fetchRequest.sortDescriptors = @[sortDescriptor];
-        
-        NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-        fetchedResultsController.delegate = self;
-        self.fetchedResultsController = fetchedResultsController;
-        [self.fetchedResultsController performFetch:nil];
-        
         [self.tableView reloadData];
     }];
 }
@@ -113,6 +118,8 @@
     [self.tableView reloadData];
 }
 
+
+#pragma mark - UITableViewDataSource
 
 // получаем кол-во ячеек из usersArray
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -153,7 +160,7 @@
 }
 
 
-#pragma mark - Search Bar methods
+#pragma mark - SearchBar methods
 
 // CancelButton
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -200,7 +207,10 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
                                               inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
-    self.usersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
+//    self.usersArray = [self.managedObjectContext executeFetchRequest:request error:nil];
+    self.usersArray = [self.fetchedResultsController fetchedObjects];
+    
+    [self.usersArray filteredArrayUsingPredicate:predicate];
     
     [self.tableView reloadData];
 }
@@ -213,11 +223,6 @@
     self.searchBar.showsCancelButton = YES;
 }
 
-
-// отписваемся от notification
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
@@ -250,6 +255,7 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
 }
+
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];

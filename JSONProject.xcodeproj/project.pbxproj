@@ -17,6 +17,11 @@
 		326B30C21A2617280079AB47 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C11A2617280079AB47 /* Geo.m */; };
 		326B30C51A2617280079AB47 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C41A2617280079AB47 /* Albums.m */; };
 		326B30C81A2617280079AB47 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C71A2617280079AB47 /* Photos.m */; };
+		3275A2CB1A3FECE600F320A0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2CA1A3FECE600F320A0 /* MapViewController.m */; };
+		3275A2D11A3FED5100F320A0 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D01A3FED5100F320A0 /* AlbumViewController.m */; };
+		3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D31A3FF1B800F320A0 /* LocationManager.m */; };
+		3275A2D91A3FFE2C00F320A0 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D61A3FFE2C00F320A0 /* MapAnnotation.m */; };
+		3275A2DA1A3FFE2C00F320A0 /* UIView+MKAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D81A3FFE2C00F320A0 /* UIView+MKAnnotationView.m */; };
 		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
@@ -82,6 +87,16 @@
 		326B30C41A2617280079AB47 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
 		326B30C61A2617280079AB47 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
 		326B30C71A2617280079AB47 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		3275A2C91A3FECE600F320A0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		3275A2CA1A3FECE600F320A0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		3275A2CF1A3FED5100F320A0 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = ../AlbumViewController.h; sourceTree = "<group>"; };
+		3275A2D01A3FED5100F320A0 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = ../AlbumViewController.m; sourceTree = "<group>"; };
+		3275A2D21A3FF1B800F320A0 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		3275A2D31A3FF1B800F320A0 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		3275A2D51A3FFE2C00F320A0 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapAnnotation.h; path = "../../Desktop/untitled folder/MapAnnotation.h"; sourceTree = "<group>"; };
+		3275A2D61A3FFE2C00F320A0 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapAnnotation.m; path = "../../Desktop/untitled folder/MapAnnotation.m"; sourceTree = "<group>"; };
+		3275A2D71A3FFE2C00F320A0 /* UIView+MKAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MKAnnotationView.h"; path = "../../Desktop/untitled folder/UIView+MKAnnotationView.h"; sourceTree = "<group>"; };
+		3275A2D81A3FFE2C00F320A0 /* UIView+MKAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MKAnnotationView.m"; path = "../../Desktop/untitled folder/UIView+MKAnnotationView.m"; sourceTree = "<group>"; };
 		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +188,10 @@
 		324D06711A08E8F6000E5A59 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3275A2D51A3FFE2C00F320A0 /* MapAnnotation.h */,
+				3275A2D61A3FFE2C00F320A0 /* MapAnnotation.m */,
+				3275A2D71A3FFE2C00F320A0 /* UIView+MKAnnotationView.h */,
+				3275A2D81A3FFE2C00F320A0 /* UIView+MKAnnotationView.m */,
 			);
 			name = Commons;
 			sourceTree = "<group>";
@@ -195,6 +214,10 @@
 				979BC7B81A02D8D1005623F1 /* ViewController.m */,
 				324C26561A077D4C00C7FFE1 /* DetailViewController.h */,
 				324C26571A077D4C00C7FFE1 /* DetailViewController.m */,
+				3275A2C91A3FECE600F320A0 /* MapViewController.h */,
+				3275A2CA1A3FECE600F320A0 /* MapViewController.m */,
+				3275A2CF1A3FED5100F320A0 /* AlbumViewController.h */,
+				3275A2D01A3FED5100F320A0 /* AlbumViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +249,8 @@
 				32D3801A1A25D6B500A1A11E /* CoreDataManager.m */,
 				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
 				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
+				3275A2D21A3FF1B800F320A0 /* LocationManager.h */,
+				3275A2D31A3FF1B800F320A0 /* LocationManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -459,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				326B30C81A2617280079AB47 /* Photos.m in Sources */,
+				3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */,
 				979CA68A1A03F893004FBB5D /* UIProgressView+AFNetworking.m in Sources */,
 				979CA6881A03F893004FBB5D /* UIButton+AFNetworking.m in Sources */,
 				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
@@ -468,10 +494,13 @@
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
 				979CA66E1A03F877004FBB5D /* AFSecurityPolicy.m in Sources */,
 				979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */,
+				3275A2D91A3FFE2C00F320A0 /* MapAnnotation.m in Sources */,
 				326B30BC1A2617280079AB47 /* User.m in Sources */,
 				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
+				3275A2D11A3FED5100F320A0 /* AlbumViewController.m in Sources */,
 				979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */,
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
+				3275A2DA1A3FFE2C00F320A0 /* UIView+MKAnnotationView.m in Sources */,
 				979CA6891A03F893004FBB5D /* UIImageView+AFNetworking.m in Sources */,
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
@@ -479,6 +508,7 @@
 				979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */,
 				326B30B91A2617270079AB47 /* Company.m in Sources */,
 				979CA6701A03F877004FBB5D /* AFURLRequestSerialization.m in Sources */,
+				3275A2CB1A3FECE600F320A0 /* MapViewController.m in Sources */,
 				979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */,
 				979CA66D1A03F877004FBB5D /* AFNetworkReachabilityManager.m in Sources */,
 				979CA6711A03F877004FBB5D /* AFURLResponseSerialization.m in Sources */,

@@ -131,21 +131,109 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="WAo-6Q-uFV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="HQM-DY-Uig">
-                            <connections>
-                                <action selector="buttonSaveItem:" destination="Eck-lj-wRE" id="j5U-W2-dhh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="WAo-6Q-uFV"/>
                     <connections>
                         <outlet property="detailTableView" destination="k9Q-zR-Srg" id="FEw-nd-bY1"/>
                         <outlet property="scrollView" destination="RDC-Bm-s7T" id="gkk-Jr-9O2"/>
+                        <segue destination="alS-D4-woA" kind="push" identifier="ShowMap" id="aB1-ZI-qT5"/>
+                        <segue destination="9I7-yQ-UU5" kind="push" identifier="ShowAlbumGallery" id="hVy-CK-nJM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80d-gJ-Nqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="453" y="114"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="IP3-0y-eC3">
+            <objects>
+                <collectionViewController id="9I7-yQ-UU5" customClass="AlbumViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c7r-QD-kxY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xOW-YC-hrX">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qsA-FV-A51">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="9I7-yQ-UU5" id="Yro-cq-HJO"/>
+                            <outlet property="delegate" destination="9I7-yQ-UU5" id="W9m-Ig-g6w"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Eae-tT-2Wb"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQa-Rj-Cjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="883" y="474"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AFG-VK-Bvd">
+            <objects>
+                <viewController id="alS-D4-woA" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HNZ-PC-Tke">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Nhy-ui-xvK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="3aQ-qV-lnE">
+                                <rect key="frame" x="55" y="20" width="210" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qno-kc-ibo">
+                                <rect key="frame" x="229" y="162" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <state key="normal" title="Zoom In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomInButton:" destination="alS-D4-woA" eventType="touchUpInside" id="jNt-aD-xre"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aEI-IA-Imw">
+                                <rect key="frame" x="229" y="312" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <state key="normal" title="Zoom Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomOutButton:" destination="alS-D4-woA" eventType="touchUpInside" id="huq-40-AcN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="OjM-5F-XfN"/>
+                    <connections>
+                        <outlet property="mapTypeControl" destination="3aQ-qV-lnE" id="ecZ-ld-vhd"/>
+                        <outlet property="mapView" destination="Nhy-ui-xvK" id="G2R-1d-CUS"/>
+                        <outletCollection property="zoomButtonsCollection" destination="aEI-IA-Imw" id="fvW-Kk-wjj"/>
+                        <outletCollection property="zoomButtonsCollection" destination="Qno-kc-ibo" id="a9M-ns-sQB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2H-q0-4Gq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="883" y="-196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FX7-sx-FAf">
