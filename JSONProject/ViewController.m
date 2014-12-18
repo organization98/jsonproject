@@ -11,9 +11,13 @@
 #import "CoreDataManager.h"
 #import "CustomCell.h"
 #import "DetailViewController.h"
+#import "AddUserViewController.h"
 
 @interface ViewController ()
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *filterControl;
+
 @end
 
 @implementation ViewController {
@@ -37,6 +41,10 @@
     self.searchBar.delegate = self;
     self.searchBar.returnKeyType = UIReturnKeySearch;
     
+    // добавлен в Main.storyboard
+    [self.filterControl addTarget:self action:@selector(indexDidChangeForSegmentedControl:) forControlEvents:UIControlEventValueChanged]; // устанавливаем @selector для SegmentedControl для выбора фильтрации списка юзеров
+    
+    // NSFetchedResultsController
     self.managedObjectContext = [CoreDataManager sharedManager].managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"User"
                                                          inManagedObjectContext:self.managedObjectContext];
@@ -85,12 +93,12 @@
     User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User"
                                                   inManagedObjectContext:self.managedObjectContext];
     
-    DetailViewController *editView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailUser"];
+    AddUserViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"addUser"];
     
     // передаем в EditUserController объект userObj
-    [editView setCurretUser:user];
+//    [controller setCurretUser:user];
     
-    [self.navigationController pushViewController:editView animated:YES];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
@@ -259,6 +267,23 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
+}
+
+
+#pragma mark - Users filter view
+
+- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)aSegmentedControl {
+    switch (aSegmentedControl.selectedSegmentIndex) {
+        case 0:
+//            self.mapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+//            self.mapView.mapType = MKMapTypeSatellite;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 

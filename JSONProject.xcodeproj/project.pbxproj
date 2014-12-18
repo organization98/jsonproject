@@ -23,6 +23,7 @@
 		3275A2D11A3FED5100F320A0 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D01A3FED5100F320A0 /* AlbumViewController.m */; };
 		3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D31A3FF1B800F320A0 /* LocationManager.m */; };
 		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
+		32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3775B1A42AD0800674F98 /* AddUserViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
 		979BC7A51A02D8D1005623F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */; };
 		979BC7A71A02D8D1005623F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A61A02D8D1005623F1 /* UIKit.framework */; };
@@ -99,6 +100,8 @@
 		3275A2D31A3FF1B800F320A0 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		32E3775A1A42AD0800674F98 /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
+		32E3775B1A42AD0800674F98 /* AddUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserViewController.m; sourceTree = "<group>"; };
 		979BC79F1A02D8D0005623F1 /* JSONProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979BC7A21A02D8D0005623F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		979BC7A41A02D8D1005623F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -212,6 +215,8 @@
 			children = (
 				979BC7B71A02D8D1005623F1 /* ViewController.h */,
 				979BC7B81A02D8D1005623F1 /* ViewController.m */,
+				32E3775A1A42AD0800674F98 /* AddUserViewController.h */,
+				32E3775B1A42AD0800674F98 /* AddUserViewController.m */,
 				324C26561A077D4C00C7FFE1 /* DetailViewController.h */,
 				324C26571A077D4C00C7FFE1 /* DetailViewController.m */,
 				3275A2C91A3FECE600F320A0 /* MapViewController.h */,
@@ -502,6 +507,7 @@
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
 				322701851A403820007FD34A /* UIView+MKAnnotationView.m in Sources */,
 				979CA6891A03F893004FBB5D /* UIImageView+AFNetworking.m in Sources */,
+				32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */,
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
 				979CA6861A03F893004FBB5D /* UIActivityIndicatorView+AFNetworking.m in Sources */,

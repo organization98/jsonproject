@@ -8,13 +8,15 @@
 
 #import "LocationManager.h"
 
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
 @interface LocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
-// перенести все методы locationManager из ViewContrpoller
-
 @end
+
 
 @implementation LocationManager
 
@@ -38,6 +40,7 @@
 - (void)startTrackLocation {
     
     self.locationManager.delegate = self;
+    
     self.locationManager.distanceFilter = kCLDistanceFilterNone; // с каким шагом проверять локацию
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest; // качество локации
     
@@ -46,6 +49,13 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
+#ifdef __IPHONE_8_0
+    if(IS_OS_8_OR_LATER) {
+        // Use one or the other, not both. Depending on what you put in info.plist
+        //[self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager requestAlwaysAuthorization];
+    }
+#endif
     [self.locationManager startUpdatingLocation];
 }
 
