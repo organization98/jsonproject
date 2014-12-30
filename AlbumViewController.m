@@ -7,6 +7,9 @@
 //
 
 #import "AlbumViewController.h"
+#import "AlbumManager.h"
+#import "CoreDataManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface AlbumViewController ()
 
@@ -25,13 +28,15 @@ static NSString * const reuseIdentifier = @"Cell";
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -46,13 +51,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
+// warning Incomplete method implementation -- Return the number of sections
     return 0;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
+// warning Incomplete method implementation -- Return the number of items in the section
     return 0;
 }
 

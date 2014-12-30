@@ -50,6 +50,7 @@
         zoomButton.layer.borderWidth = 1;
         zoomButton.layer.cornerRadius = 4;
         zoomButton.clipsToBounds = YES;
+        zoomButton.titleLabel.font = [UIFont systemFontOfSize:13];
     }
 }
 

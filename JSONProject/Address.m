@@ -62,7 +62,7 @@
                                @"street"    : self.street,
                                @"city"      : self.city,
                                @"zipcode"   : self.zipcode,
-                               @"geo"       : [NSString stringWithFormat:@"%@ : %@", self.geo.lat, self.geo.lng]
+                               @"geo"       : [NSString stringWithFormat:@"%f : %f", self.geo.lat.floatValue, self.geo.lng.floatValue]
                                };
     return address;
 }

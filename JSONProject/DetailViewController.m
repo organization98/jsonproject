@@ -6,12 +6,17 @@
 //  Copyright (c) 2014 Dmitriy Demchenko. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
 #import "DetailViewController.h"
 #import "DetailCustomCell.h"
 #import "MapViewController.h"
 #import "AlbumViewController.h"
 
-@interface DetailViewController () <UITableViewDataSource, UITextFieldDelegate, UIActionSheetDelegate>
+@interface DetailViewController () <UITableViewDataSource,
+                                    UITextFieldDelegate,
+                                    UIActionSheetDelegate,
+                                    MFMailComposeViewControllerDelegate,
+                                    MFMessageComposeViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonsCollection;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -213,22 +218,132 @@
 
 
 - (void)openBarButtonAction:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@ on map", self.curretUser.name], @"Album gallery",nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Open website in Safari", @"Send e-mail", @"Send SMS", [NSString stringWithFormat:@"%@ on map", self.curretUser.name], @"Album gallery", nil];
     [actionSheet showInView:self.view]; // оттображение на текущем View
 }
 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex; {
     switch (buttonIndex) {
-        case 0:
+        case 0: // Safari
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", self.curretUser.website]]];
+            break;
+        case 1: // Mail
+            if ([MFMailComposeViewController canSendMail]) {
+                [self sendMail];
+            } else {
+                [self alert:@"This device cannot send e-mail"];
+            }
+            break;
+        case 2: // SMS
+            [self sendSMS]; // Удалить!
+            if ([MFMessageComposeViewController canSendText]) {
+                [self sendSMS];
+            } else {
+                [self alert:@"This device cannot send SMS"];
+            }
+            break;
+        case 3: // Map
             [self performSegueWithIdentifier:@"ShowMap" sender:self];
             break;
-        case 1:
+        case 4: // Album Gallery
             [self performSegueWithIdentifier:@"ShowAlbumGallery" sender:self];
             break;
         default:
             break;
     }
+}
+
+
+- (MFMailComposeViewController *)sendMail {
+    MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+    mailController.mailComposeDelegate = self;
+    [mailController setToRecipients:[NSArray arrayWithObject:self.curretUser.email]];
+    [mailController setSubject:@"Test e-mail"];
+    [mailController setMessageBody:[self messageBody] isHTML:NO];
+    [self presentViewController:mailController animated:YES completion:NULL];
+    return mailController;
+}
+
+
+- (MFMessageComposeViewController *)sendSMS {
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    messageController.subject = @"Test message";
+    messageController.recipients = [NSArray arrayWithObject:self.curretUser.phone];
+    messageController.body = [self messageBody];
+    [self presentViewController:messageController animated:YES completion:NULL];
+    return messageController;
+}
+
+
+- (NSString *)messageBody {
+    return [NSString stringWithFormat:@"Dear, %@", self.curretUser.name];
+}
+
+
+#pragma mark - AlerView
+
+- (UIAlertView *)alert:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                     message:message
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil, nil];
+    [alert show];
+    return alert;
+}
+
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    if (result == MFMailComposeResultSent || result == MFMailComposeResultSaved || result == MFMailComposeResultCancelled) {
+        switch (result) {
+            case MFMailComposeResultSent:
+                [self alert:@"You sent the email."];
+                break;
+            case MFMailComposeResultSaved:
+                [self alert:@"You saved a draft of this email"];
+                break;
+            case MFMailComposeResultCancelled:
+                [self alert:@"You cancelled sending this email."];
+                break;
+            case MFMailComposeResultFailed:
+                [self alert:@"Mail failed:  An error occurred when trying to compose this email"];
+                break;
+            default:
+                [self alert:@"An error occurred when trying to compose this email"];
+                break;
+        }
+    } else if (error != nil) {
+        [self alert:[error localizedDescription]]; //show error
+    }
+    [self dismissViewControllerAnimated:YES completion:NULL]; //dismiss view
+}
+
+
+#pragma mark - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    //test result
+    switch (result) {
+        case MessageComposeResultCancelled:
+            [self alert:@"Result canceled"];
+            break;
+            //message was sent
+        case MessageComposeResultSent:
+            [self alert:@"Result sent"];
+            break;
+        case MessageComposeResultFailed:
+            [self alert:@"Result Failed"];
+            break;
+        default:
+            break;
+    }
+    
+    //dismiss view
+    [self dismissViewControllerAnimated:YES completion:NULL]; //dismiss view
 }
 
 

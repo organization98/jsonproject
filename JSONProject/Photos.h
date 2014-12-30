@@ -21,3 +21,15 @@
 @property (nonatomic, retain) Albums *albums;
 
 @end
+
+@interface Photos (CoreDataGeneratedAccessors)
+
+- (void)addUserObject:(Albums *)value;
+- (void)removeUserObject:(Albums *)value;
+- (void)addUser:(NSSet *)values;
+- (void)removeUser:(NSSet *)values;
+
++ (Photos *)photosFromDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryFromPhotos;
+
+@end

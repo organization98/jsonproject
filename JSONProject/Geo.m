@@ -8,6 +8,7 @@
 
 #import "Geo.h"
 #import "Address.h"
+#import "User.h"
 #import "CoreDataManager.h"
 
 
@@ -21,7 +22,7 @@
     NSNumber *lat = [dictionary objectForKey:@"lat"];
     NSNumber *lng = [dictionary objectForKey:@"lng"];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lat == %@ || lng == %@", lat, lng];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lat == %@ OR lng == %@", lat, lng];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Geo"
                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     [request setEntity:entity];
@@ -36,10 +37,13 @@
         geo = [result objectAtIndex:0];
     } else {
         geo = [NSEntityDescription insertNewObjectForEntityForName:@"Geo"
-                                             inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+                                            inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     }
-    geo.lat = [NSNumber numberWithInt:[[dictionary objectForKey:@"lat"] intValue]];
-    geo.lng = [NSNumber numberWithInt:[[dictionary objectForKey:@"lng"] intValue]];
+    geo.lat = [NSNumber numberWithFloat:[[dictionary objectForKey:@"lat"] floatValue]];
+    geo.lng = [NSNumber numberWithFloat:[[dictionary objectForKey:@"lng"] floatValue]];
+    
+//    geo.lat = [dictionary objectForKey:@"lat"];
+//    geo.lng = [dictionary objectForKey:@"lng"];
     
     [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
     if (error) {

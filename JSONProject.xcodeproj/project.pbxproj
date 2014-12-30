@@ -13,15 +13,17 @@
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
 		32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32585C1A1A239C9A00E52850 /* CoreData.framework */; };
 		32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */; };
-		326B30B91A2617270079AB47 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30B81A2617270079AB47 /* Company.m */; };
-		326B30BC1A2617280079AB47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30BB1A2617280079AB47 /* User.m */; };
-		326B30BF1A2617280079AB47 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30BE1A2617280079AB47 /* Address.m */; };
-		326B30C21A2617280079AB47 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C11A2617280079AB47 /* Geo.m */; };
-		326B30C51A2617280079AB47 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C41A2617280079AB47 /* Albums.m */; };
-		326B30C81A2617280079AB47 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 326B30C71A2617280079AB47 /* Photos.m */; };
+		3265D1DD1A4A798600586B31 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1DC1A4A798600586B31 /* Photos.m */; };
+		3265D1E01A4A798600586B31 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1DF1A4A798600586B31 /* Company.m */; };
+		3265D1E61A4A798600586B31 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1E51A4A798600586B31 /* Address.m */; };
+		3265D1E91A4A798600586B31 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1E81A4A798600586B31 /* Geo.m */; };
 		3275A2CB1A3FECE600F320A0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2CA1A3FECE600F320A0 /* MapViewController.m */; };
 		3275A2D11A3FED5100F320A0 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D01A3FED5100F320A0 /* AlbumViewController.m */; };
 		3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3275A2D31A3FF1B800F320A0 /* LocationManager.m */; };
+		32B2A9E61A50F0E1001583E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9E51A50F0E1001583E9 /* User.m */; };
+		32B2A9E91A50F75F001583E9 /* AlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9E81A50F75F001583E9 /* AlbumManager.m */; };
+		32B2A9EC1A50FB27001583E9 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9EB1A50FB27001583E9 /* Albums.m */; };
+		32B2A9EF1A50FF6E001583E9 /* PhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */; };
 		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
 		32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3775B1A42AD0800674F98 /* AddUserViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
@@ -80,24 +82,28 @@
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		32585C1A1A239C9A00E52850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		32585C201A239F4600E52850 /* JSONProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSONProject.xcdatamodel; sourceTree = "<group>"; };
-		326B30B71A2617270079AB47 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		326B30B81A2617270079AB47 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
-		326B30BA1A2617280079AB47 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		326B30BB1A2617280079AB47 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		326B30BD1A2617280079AB47 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
-		326B30BE1A2617280079AB47 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
-		326B30C01A2617280079AB47 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
-		326B30C11A2617280079AB47 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
-		326B30C31A2617280079AB47 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
-		326B30C41A2617280079AB47 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
-		326B30C61A2617280079AB47 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
-		326B30C71A2617280079AB47 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		3265D1DB1A4A798600586B31 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		3265D1DC1A4A798600586B31 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		3265D1DE1A4A798600586B31 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		3265D1DF1A4A798600586B31 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
+		3265D1E41A4A798600586B31 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
+		3265D1E51A4A798600586B31 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		3265D1E71A4A798600586B31 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geo.h; sourceTree = "<group>"; };
+		3265D1E81A4A798600586B31 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geo.m; sourceTree = "<group>"; };
 		3275A2C91A3FECE600F320A0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3275A2CA1A3FECE600F320A0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		3275A2CF1A3FED5100F320A0 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = ../AlbumViewController.h; sourceTree = "<group>"; };
 		3275A2D01A3FED5100F320A0 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = ../AlbumViewController.m; sourceTree = "<group>"; };
 		3275A2D21A3FF1B800F320A0 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		3275A2D31A3FF1B800F320A0 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		32B2A9E41A50F0E1001583E9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		32B2A9E51A50F0E1001583E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		32B2A9E71A50F75F001583E9 /* AlbumManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumManager.h; sourceTree = "<group>"; };
+		32B2A9E81A50F75F001583E9 /* AlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumManager.m; sourceTree = "<group>"; };
+		32B2A9EA1A50FB27001583E9 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
+		32B2A9EB1A50FB27001583E9 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
+		32B2A9ED1A50FF6E001583E9 /* PhotosManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosManager.h; sourceTree = "<group>"; };
+		32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosManager.m; sourceTree = "<group>"; };
 		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		32E3775A1A42AD0800674F98 /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
@@ -231,18 +237,18 @@
 			isa = PBXGroup;
 			children = (
 				32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */,
-				326B30BA1A2617280079AB47 /* User.h */,
-				326B30BB1A2617280079AB47 /* User.m */,
-				326B30BD1A2617280079AB47 /* Address.h */,
-				326B30BE1A2617280079AB47 /* Address.m */,
-				326B30C01A2617280079AB47 /* Geo.h */,
-				326B30C11A2617280079AB47 /* Geo.m */,
-				326B30B71A2617270079AB47 /* Company.h */,
-				326B30B81A2617270079AB47 /* Company.m */,
-				326B30C31A2617280079AB47 /* Albums.h */,
-				326B30C41A2617280079AB47 /* Albums.m */,
-				326B30C61A2617280079AB47 /* Photos.h */,
-				326B30C71A2617280079AB47 /* Photos.m */,
+				32B2A9E41A50F0E1001583E9 /* User.h */,
+				32B2A9E51A50F0E1001583E9 /* User.m */,
+				3265D1E41A4A798600586B31 /* Address.h */,
+				3265D1E51A4A798600586B31 /* Address.m */,
+				3265D1E71A4A798600586B31 /* Geo.h */,
+				3265D1E81A4A798600586B31 /* Geo.m */,
+				3265D1DE1A4A798600586B31 /* Company.h */,
+				3265D1DF1A4A798600586B31 /* Company.m */,
+				32B2A9EA1A50FB27001583E9 /* Albums.h */,
+				32B2A9EB1A50FB27001583E9 /* Albums.m */,
+				3265D1DB1A4A798600586B31 /* Photos.h */,
+				3265D1DC1A4A798600586B31 /* Photos.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -254,6 +260,10 @@
 				32D3801A1A25D6B500A1A11E /* CoreDataManager.m */,
 				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
 				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
+				32B2A9E71A50F75F001583E9 /* AlbumManager.h */,
+				32B2A9E81A50F75F001583E9 /* AlbumManager.m */,
+				32B2A9ED1A50FF6E001583E9 /* PhotosManager.h */,
+				32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */,
 				3275A2D21A3FF1B800F320A0 /* LocationManager.h */,
 				3275A2D31A3FF1B800F320A0 /* LocationManager.m */,
 			);
@@ -488,31 +498,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326B30C81A2617280079AB47 /* Photos.m in Sources */,
 				3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */,
 				979CA68A1A03F893004FBB5D /* UIProgressView+AFNetworking.m in Sources */,
+				32B2A9EF1A50FF6E001583E9 /* PhotosManager.m in Sources */,
 				979CA6881A03F893004FBB5D /* UIButton+AFNetworking.m in Sources */,
+				3265D1E91A4A798600586B31 /* Geo.m in Sources */,
 				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
 				979CA68B1A03F893004FBB5D /* UIRefreshControl+AFNetworking.m in Sources */,
 				979CA6871A03F893004FBB5D /* UIAlertView+AFNetworking.m in Sources */,
-				326B30BF1A2617280079AB47 /* Address.m in Sources */,
+				3265D1E01A4A798600586B31 /* Company.m in Sources */,
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
+				32B2A9E91A50F75F001583E9 /* AlbumManager.m in Sources */,
 				979CA66E1A03F877004FBB5D /* AFSecurityPolicy.m in Sources */,
 				979CA68F1A03F938004FBB5D /* NetworkManager.m in Sources */,
 				322701841A403820007FD34A /* MapAnnotation.m in Sources */,
-				326B30BC1A2617280079AB47 /* User.m in Sources */,
 				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
+				32B2A9EC1A50FB27001583E9 /* Albums.m in Sources */,
 				3275A2D11A3FED5100F320A0 /* AlbumViewController.m in Sources */,
 				979CA66B1A03F877004FBB5D /* AFHTTPRequestOperationManager.m in Sources */,
 				979CA66F1A03F877004FBB5D /* AFURLConnectionOperation.m in Sources */,
 				322701851A403820007FD34A /* UIView+MKAnnotationView.m in Sources */,
 				979CA6891A03F893004FBB5D /* UIImageView+AFNetworking.m in Sources */,
+				3265D1DD1A4A798600586B31 /* Photos.m in Sources */,
 				32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */,
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				979CA66A1A03F877004FBB5D /* AFHTTPRequestOperation.m in Sources */,
 				979CA6861A03F893004FBB5D /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				979BC7DF1A02E310005623F1 /* CustomCell.m in Sources */,
-				326B30B91A2617270079AB47 /* Company.m in Sources */,
 				979CA6701A03F877004FBB5D /* AFURLRequestSerialization.m in Sources */,
 				3275A2CB1A3FECE600F320A0 /* MapViewController.m in Sources */,
 				979CA66C1A03F877004FBB5D /* AFHTTPSessionManager.m in Sources */,
@@ -521,10 +533,10 @@
 				979CA68C1A03F893004FBB5D /* UIWebView+AFNetworking.m in Sources */,
 				320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */,
 				32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */,
+				3265D1E61A4A798600586B31 /* Address.m in Sources */,
+				32B2A9E61A50F0E1001583E9 /* User.m in Sources */,
 				979CA6721A03F877004FBB5D /* AFURLSessionManager.m in Sources */,
-				326B30C21A2617280079AB47 /* Geo.m in Sources */,
 				979CA6851A03F893004FBB5D /* AFNetworkActivityIndicatorManager.m in Sources */,
-				326B30C51A2617280079AB47 /* Albums.m in Sources */,
 				979BC7AF1A02D8D1005623F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

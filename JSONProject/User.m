@@ -2,7 +2,7 @@
 //  User.m
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 11/26/14.
+//  Created by Dmitriy Demchenko on 12/29/14.
 //  Copyright (c) 2014 Home. All rights reserved.
 //
 
@@ -11,8 +11,10 @@
 #import "Geo.h"
 #import "Company.h"
 #import "Albums.h"
+#import "Photos.h"
 #import "CoreDataManager.h"
 #import "NetworkManager.h"
+#import "AlbumManager.h"
 
 @implementation User
 
@@ -61,6 +63,14 @@
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[dictionary objectForKey:@"geo"]];
     
+    user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
+    
+    user.albums.photos = [Photos photosFromDictionary:[dictionary objectForKey:@"photos"]];
+    
+    NSLog(@"%@", user.albums);
+    NSLog(@"%@", user.albums.photos);
+    NSLog(@"%@", user.address);
+    
     return user;
 }
 
@@ -78,12 +88,12 @@
 }
 
 - (NSDictionary *)dictionaryFromFullUser {
-//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
+    //    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     [dict setObject:self.dictionaryFromUser forKey:@"general"];
     [dict setObject:[self.address dictionaryFromAddress] forKey:@"address"];
-//    [dict setObject:[self.address.geo dictionaryFromGeo] forKey:@"geo"];
+    //    [dict setObject:[self.address.geo dictionaryFromGeo] forKey:@"geo"];
     [dict setObject:[self.company dictionaryFromCompany] forKey:@"company"];
     
     return dict;
