@@ -54,22 +54,22 @@
     user.email = [dictionary objectForKey:@"email"];
     user.phone = [dictionary objectForKey:@"phone"];
     user.website = [dictionary objectForKey:@"website"];
-    
+    NSLog(@"%@", dictionary);
     [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
     user.company = [Company companyFromDictionary:[dictionary objectForKey:@"company"]];
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
-    user.address.geo = [Geo geoFromDictionary:[dictionary objectForKey:@"geo"]];
+    user.address.geo = [Geo geoFromDictionary:[[dictionary objectForKey:@"address"] objectForKey:@"geo"]];
     
-    user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
+//    user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
+//    
+//    user.albums.photos = [Photos photosFromDictionary:[dictionary objectForKey:@"photos"]];
     
-    user.albums.photos = [Photos photosFromDictionary:[dictionary objectForKey:@"photos"]];
-    
-    NSLog(@"%@", user.albums);
-    NSLog(@"%@", user.albums.photos);
-    NSLog(@"%@", user.address);
+//    NSLog(@"%@", user.albums);
+//    NSLog(@"%@", user.albums.photos);
+//    NSLog(@"%@", user.address);
     
     return user;
 }

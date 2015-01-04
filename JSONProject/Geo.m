@@ -34,16 +34,14 @@
     }
     Geo *geo = nil;
     if ([result count]) {
-        geo = [result objectAtIndex:0];
+        geo = [result firstObject];
     } else {
         geo = [NSEntityDescription insertNewObjectForEntityForName:@"Geo"
                                             inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     }
-    geo.lat = [NSNumber numberWithFloat:[[dictionary objectForKey:@"lat"] floatValue]];
-    geo.lng = [NSNumber numberWithFloat:[[dictionary objectForKey:@"lng"] floatValue]];
     
-//    geo.lat = [dictionary objectForKey:@"lat"];
-//    geo.lng = [dictionary objectForKey:@"lng"];
+    geo.lat = [NSNumber numberWithFloat:[lat floatValue]];
+    geo.lng = [NSNumber numberWithFloat:[lng floatValue]];
     
     [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
     if (error) {
