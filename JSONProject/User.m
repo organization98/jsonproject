@@ -14,7 +14,6 @@
 #import "Photos.h"
 #import "CoreDataManager.h"
 #import "NetworkManager.h"
-#import "AlbumManager.h"
 
 @implementation User
 
@@ -54,7 +53,7 @@
     user.email = [dictionary objectForKey:@"email"];
     user.phone = [dictionary objectForKey:@"phone"];
     user.website = [dictionary objectForKey:@"website"];
-    NSLog(@"%@", dictionary);
+//    NSLog(@"%@", dictionary);
     [[[CoreDataManager sharedManager] managedObjectContext] save:&error];
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -63,13 +62,13 @@
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[[dictionary objectForKey:@"address"] objectForKey:@"geo"]];
     
-//    user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
-//    
-//    user.albums.photos = [Photos photosFromDictionary:[dictionary objectForKey:@"photos"]];
+    user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
+    user.albums.photos = [Photos photosFromDictionary:[[dictionary objectForKey:@"albums"] objectForKey:@"photos"]];
     
-//    NSLog(@"%@", user.albums);
-//    NSLog(@"%@", user.albums.photos);
-//    NSLog(@"%@", user.address);
+    user.albums.userId = user.idUser;
+    user.albums.photos.albumId = user.albums.userId;
+    
+    NSLog(@"%@", user.albums.photos);
     
     return user;
 }
@@ -88,12 +87,11 @@
 }
 
 - (NSDictionary *)dictionaryFromFullUser {
-    //    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:@{@"general":self.dictionaryFromUser}];
+    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
     [dict setObject:self.dictionaryFromUser forKey:@"general"];
     [dict setObject:[self.address dictionaryFromAddress] forKey:@"address"];
-    //    [dict setObject:[self.address.geo dictionaryFromGeo] forKey:@"geo"];
     [dict setObject:[self.company dictionaryFromCompany] forKey:@"company"];
     
     return dict;

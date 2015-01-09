@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 #import "NetworkManager.h"
-#import "AlbumManager.h"
-#import "PhotosManager.h"
 #import "CoreDataManager.h"
 #import "CustomCell.h"
 #import "DetailViewController.h"
@@ -48,7 +46,7 @@
     
     self.searchBar.delegate = self;
     self.searchBar.placeholder = @"Search";
-    self.searchBar.returnKeyType = UIReturnKeySearch;
+//    self.searchBar.returnKeyType = UIReturnKeySearch;
     
     // SegmentedControl, добавлен в Main.storyboard, устанавливаем @selector для SegmentedControl для выбора фильтрации списка юзеров
     [self.filterControl addTarget:self
@@ -60,8 +58,11 @@
     [self fetchedResultsController];
     
     [self loadUsers];
-//    [self loadAlbums];
-//    [self loadPhotos];
+    /*
+    [self loadDataForType:1 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users/"]];
+    [self loadDataForType:2 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/albums/"]];
+    [self loadDataForType:3 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/photos/"]];
+    */
 }
 
 
@@ -85,18 +86,13 @@
 }
 
 
-- (void)loadAlbums {
-    [[AlbumManager sharedManager] loadDataFromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/albums/"] completion:^(BOOL succes, id data, NSError *error) {
-        //        [self.tableView reloadData];
+/*
+- (void)loadDataForType:(int)type fromURL:(NSURL *)url {
+    [[NetworkManager sharedManager] loadDataForType:type fromURL:url completion:^(BOOL succes, id data, NSError *error) {
+        [self.tableView reloadData];
     }];
 }
-
-
-- (void)loadPhotos {
-    [[PhotosManager sharedManager] loadDataFromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/photos/"] completion:^(BOOL succes, id data, NSError *error) {
-//        [self.tableView reloadData];
-    }];
-}
+*/
 
 
 - (void)reloadTable {

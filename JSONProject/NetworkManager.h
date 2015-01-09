@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Albums.h"
+#import "Photos.h"
 
 typedef  void (^NetworkBlock)(BOOL succes, id data, NSError* error);
 
@@ -15,6 +17,10 @@ typedef  void (^NetworkBlock)(BOOL succes, id data, NSError* error);
 
 + (NetworkManager *)sharedManager;
 - (void)loadDataFromURL:(NSURL *)url completion:(NetworkBlock) block;
+
+// метод для нескольких URL
+- (void)loadDataForType:(int)type fromURL:(NSURL *)url completion:(NetworkBlock)block;
+
 - (void)saveUser:(User *)user completion:(NetworkBlock) block;
 
 @end

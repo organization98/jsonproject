@@ -7,7 +7,6 @@
 //
 
 #import "AlbumViewController.h"
-#import "AlbumManager.h"
 #import "CoreDataManager.h"
 #import "UIImageView+AFNetworking.h"
 

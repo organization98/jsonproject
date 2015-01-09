@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Address, Albums, Company;
+@class Address, Albums, Photos, Company;
 
 @interface User : NSManagedObject
 

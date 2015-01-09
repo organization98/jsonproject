@@ -11,6 +11,7 @@
 #import "DetailCustomCell.h"
 #import "MapViewController.h"
 #import "AlbumViewController.h"
+#import "Address.h"
 
 @interface DetailViewController () <UITableViewDataSource,
                                     UITextFieldDelegate,
@@ -349,7 +350,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapController = segue.destinationViewController;
-//    mapController. = _detail.link;
+//    mapController = _curretUser.address.geo.lat;
     AlbumViewController *albumController = segue.destinationViewController;
 //    albumController.url = _detail.link;
 }

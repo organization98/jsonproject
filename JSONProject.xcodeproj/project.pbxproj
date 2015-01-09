@@ -39,9 +39,7 @@
 		32B295141A57C4720053F70A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B295031A57C4720053F70A /* UIWebView+AFNetworking.m */; };
 		32B295171A57C4FB0053F70A /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B295161A57C4FB0053F70A /* CustomCell.m */; };
 		32B2A9E61A50F0E1001583E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9E51A50F0E1001583E9 /* User.m */; };
-		32B2A9E91A50F75F001583E9 /* AlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9E81A50F75F001583E9 /* AlbumManager.m */; };
 		32B2A9EC1A50FB27001583E9 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9EB1A50FB27001583E9 /* Albums.m */; };
-		32B2A9EF1A50FF6E001583E9 /* PhotosManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */; };
 		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
 		32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3775B1A42AD0800674F98 /* AddUserViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
@@ -136,12 +134,8 @@
 		32B295161A57C4FB0053F70A /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		32B2A9E41A50F0E1001583E9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		32B2A9E51A50F0E1001583E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		32B2A9E71A50F75F001583E9 /* AlbumManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumManager.h; sourceTree = "<group>"; };
-		32B2A9E81A50F75F001583E9 /* AlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumManager.m; sourceTree = "<group>"; };
 		32B2A9EA1A50FB27001583E9 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
 		32B2A9EB1A50FB27001583E9 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
-		32B2A9ED1A50FF6E001583E9 /* PhotosManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosManager.h; sourceTree = "<group>"; };
-		32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosManager.m; sourceTree = "<group>"; };
 		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		32E3775A1A42AD0800674F98 /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
@@ -260,10 +254,6 @@
 				32D3801A1A25D6B500A1A11E /* CoreDataManager.m */,
 				979CA68D1A03F938004FBB5D /* NetworkManager.h */,
 				979CA68E1A03F938004FBB5D /* NetworkManager.m */,
-				32B2A9E71A50F75F001583E9 /* AlbumManager.h */,
-				32B2A9E81A50F75F001583E9 /* AlbumManager.m */,
-				32B2A9ED1A50FF6E001583E9 /* PhotosManager.h */,
-				32B2A9EE1A50FF6E001583E9 /* PhotosManager.m */,
 				3275A2D21A3FF1B800F320A0 /* LocationManager.h */,
 				3275A2D31A3FF1B800F320A0 /* LocationManager.m */,
 			);
@@ -503,13 +493,11 @@
 				32B295081A57C4720053F70A /* AFSecurityPolicy.m in Sources */,
 				3275A2D41A3FF1B800F320A0 /* LocationManager.m in Sources */,
 				32B295101A57C4720053F70A /* UIButton+AFNetworking.m in Sources */,
-				32B2A9EF1A50FF6E001583E9 /* PhotosManager.m in Sources */,
 				3265D1E91A4A798600586B31 /* Geo.m in Sources */,
 				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
 				32B295091A57C4720053F70A /* AFURLConnectionOperation.m in Sources */,
 				3265D1E01A4A798600586B31 /* Company.m in Sources */,
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
-				32B2A9E91A50F75F001583E9 /* AlbumManager.m in Sources */,
 				32B2950F1A57C4720053F70A /* UIAlertView+AFNetworking.m in Sources */,
 				32B295141A57C4720053F70A /* UIWebView+AFNetworking.m in Sources */,
 				32B2950C1A57C4720053F70A /* AFURLSessionManager.m in Sources */,

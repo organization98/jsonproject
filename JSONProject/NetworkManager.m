@@ -21,6 +21,18 @@
     return manager;
 }
 
+//Получение списка пользователей NEW
+- (void)loadDataForType:(int)type fromURL:(NSURL *)url completion:(NetworkBlock)block {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url.absoluteString parameters:nil success:
+     ^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSArray *users = [self usersFromData:responseObject and:type];
+         block (YES, users, nil);
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         //Обработка ошибки
+     }];
+}
+
 //Получение списка пользователей
 - (void)loadDataFromURL:(NSURL *)url completion:(NetworkBlock)block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -52,6 +64,25 @@
     for (NSDictionary *dict in data){
         User *user = [User userFromDictionary:dict];
         [users addObject:user];
+    }
+    return users;
+}
+
+
+//Возвращает массив пользователей NEW
+- (NSArray *)usersFromData:(id)data and:(int)type {
+    NSMutableArray *users = [NSMutableArray array];
+    for (NSDictionary *dict in data){
+        if (type == 1) {
+            User *user = [User userFromDictionary:dict];
+            [users addObject:user];
+        } else if (type == 2) {
+            Albums *album = [Albums albumFromDictionary:dict];
+            [users addObject:album];
+        } else {
+            Photos *photo = [Photos photosFromDictionary:dict];
+            [users addObject:photo];
+        }
     }
     return users;
 }
