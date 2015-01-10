@@ -61,7 +61,7 @@
     user.company = [Company companyFromDictionary:[dictionary objectForKey:@"company"]];
     user.address = [Address addressFromDictionary:[dictionary objectForKey:@"address"]];
     user.address.geo = [Geo geoFromDictionary:[[dictionary objectForKey:@"address"] objectForKey:@"geo"]];
-    
+    /*
     user.albums = [Albums albumFromDictionary:[dictionary objectForKey:@"albums"]];
     user.albums.photos = [Photos photosFromDictionary:[[dictionary objectForKey:@"albums"] objectForKey:@"photos"]];
     
@@ -69,7 +69,7 @@
     user.albums.photos.albumId = user.albums.userId;
     
     NSLog(@"%@", user.albums.photos);
-    
+    */
     return user;
 }
 

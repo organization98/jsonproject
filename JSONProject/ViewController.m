@@ -58,11 +58,6 @@
     [self fetchedResultsController];
     
     [self loadUsers];
-    /*
-    [self loadDataForType:1 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users/"]];
-    [self loadDataForType:2 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/albums/"]];
-    [self loadDataForType:3 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/photos/"]];
-    */
 }
 
 
@@ -80,19 +75,10 @@
 
 //Получить данные по NSURL, сохранить в CoreData
 - (void)loadUsers {
-    [[NetworkManager sharedManager] loadDataFromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users/"] completion:^(BOOL succes, id data, NSError *error) {
+    [[NetworkManager sharedManager] loadDataForType:1 fromURL:[NSURL URLWithString: @"http://jsonplaceholder.typicode.com/users/"] completion:^(BOOL succes, id data, NSError *error) {
         [self.tableView reloadData];
     }];
 }
-
-
-/*
-- (void)loadDataForType:(int)type fromURL:(NSURL *)url {
-    [[NetworkManager sharedManager] loadDataForType:type fromURL:url completion:^(BOOL succes, id data, NSError *error) {
-        [self.tableView reloadData];
-    }];
-}
-*/
 
 
 - (void)reloadTable {

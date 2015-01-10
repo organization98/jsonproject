@@ -346,11 +346,11 @@
     //dismiss view
     [self dismissViewControllerAnimated:YES completion:NULL]; //dismiss view
 }
-
+//
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     MapViewController *mapController = segue.destinationViewController;
-//    mapController = _curretUser.address.geo.lat;
+//    mapController = ;
     AlbumViewController *albumController = segue.destinationViewController;
 //    albumController.url = _detail.link;
 }

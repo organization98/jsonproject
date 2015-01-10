@@ -20,7 +20,6 @@
 
 + (CustomCell *)customCell;
 + (NSString *)cellID;
-//- (void)configForItem:(id)object;
 - (void)configForItem:(User *)user;
 
 @end

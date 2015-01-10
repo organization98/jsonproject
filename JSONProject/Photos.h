@@ -13,11 +13,11 @@
 
 @interface Photos : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * albumId;
-@property (nonatomic, retain) NSNumber * idPhotos;
-@property (nonatomic, retain) NSString * thumbnailUrl;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSNumber *albumId;
+@property (nonatomic, retain) NSNumber *idPhotos;
+@property (nonatomic, retain) NSString *thumbnailUrl;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *url;
 @property (nonatomic, retain) Albums *albums;
 
 @end

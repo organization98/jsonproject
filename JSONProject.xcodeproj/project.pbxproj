@@ -12,6 +12,7 @@
 		322701841A403820007FD34A /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 322701811A403820007FD34A /* MapAnnotation.m */; };
 		322701851A403820007FD34A /* UIView+MKAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 322701831A403820007FD34A /* UIView+MKAnnotationView.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
+		325247C21A61B73D00DBFE78 /* ThumbnailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 325247C11A61B73D00DBFE78 /* ThumbnailCustomCell.m */; };
 		32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32585C1A1A239C9A00E52850 /* CoreData.framework */; };
 		32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */; };
 		3265D1DD1A4A798600586B31 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1DC1A4A798600586B31 /* Photos.m */; };
@@ -80,6 +81,8 @@
 		322701831A403820007FD34A /* UIView+MKAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MKAnnotationView.m"; sourceTree = "<group>"; };
 		324C26561A077D4C00C7FFE1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		324C26571A077D4C00C7FFE1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		325247C01A61B73D00DBFE78 /* ThumbnailCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCustomCell.h; sourceTree = "<group>"; };
+		325247C11A61B73D00DBFE78 /* ThumbnailCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCustomCell.m; sourceTree = "<group>"; };
 		32585C1A1A239C9A00E52850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		32585C201A239F4600E52850 /* JSONProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSONProject.xcdatamodel; sourceTree = "<group>"; };
 		3265D1DB1A4A798600586B31 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				32B295161A57C4FB0053F70A /* CustomCell.m */,
 				320A11F21A0FEC8E00194970 /* DetailCustomCell.h */,
 				320A11F31A0FEC8E00194970 /* DetailCustomCell.m */,
+				325247C01A61B73D00DBFE78 /* ThumbnailCustomCell.h */,
+				325247C11A61B73D00DBFE78 /* ThumbnailCustomCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */,
 				32B295171A57C4FB0053F70A /* CustomCell.m in Sources */,
 				3265D1E61A4A798600586B31 /* Address.m in Sources */,
+				325247C21A61B73D00DBFE78 /* ThumbnailCustomCell.m in Sources */,
 				32B2A9E61A50F0E1001583E9 /* User.m in Sources */,
 				32B2950A1A57C4720053F70A /* AFURLRequestSerialization.m in Sources */,
 				979BC7AF1A02D8D1005623F1 /* main.m in Sources */,
