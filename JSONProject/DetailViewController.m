@@ -8,6 +8,7 @@
 
 #import <MessageUI/MessageUI.h>
 #import "DetailViewController.h"
+#import "CoreDataManager.h"
 #import "DetailCustomCell.h"
 #import "MapViewController.h"
 #import "AlbumViewController.h"
@@ -348,11 +349,20 @@
 }
 //
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    MapViewController *mapController = segue.destinationViewController;
-//    mapController = ;
-    AlbumViewController *albumController = segue.destinationViewController;
-//    albumController.url = _detail.link;
+    
+    if ([[segue identifier] isEqualToString:@"ShowMap"]) {
+        MapViewController *mapController = (MapViewController *)[segue destinationViewController];
+        
+        // передать объект GEO
+    }
+    
+    if ([[segue identifier] isEqualToString:@"ShowAlbumGallery"]) {
+        AlbumViewController *albumController = (AlbumViewController *)[segue destinationViewController];
+        
+        // передать объект USER ID        
+    }
 }
 
 

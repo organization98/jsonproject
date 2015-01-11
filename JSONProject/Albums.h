@@ -2,8 +2,8 @@
 //  Albums.h
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 12/29/14.
-//  Copyright (c) 2014 Home. All rights reserved.
+//  Created by Dmitriy Demchenko on 1/11/15.
+//  Copyright (c) 2015 Home. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,12 +16,16 @@
 @property (nonatomic, retain) NSNumber * idAlbums;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * userId;
-@property (nonatomic, retain) Photos *photos;
+@property (nonatomic, retain) NSSet *photos;
 @property (nonatomic, retain) NSSet *user;
-
 @end
 
 @interface Albums (CoreDataGeneratedAccessors)
+
+- (void)addPhotosObject:(Photos *)value;
+- (void)removePhotosObject:(Photos *)value;
+- (void)addPhotos:(NSSet *)values;
+- (void)removePhotos:(NSSet *)values;
 
 - (void)addUserObject:(User *)value;
 - (void)removeUserObject:(User *)value;

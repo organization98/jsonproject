@@ -2,8 +2,8 @@
 //  Photos.m
 //  JSONProject
 //
-//  Created by Dmitriy Demchenko on 11/26/14.
-//  Copyright (c) 2014 Home. All rights reserved.
+//  Created by Dmitriy Demchenko on 1/11/15.
+//  Copyright (c) 2015 Home. All rights reserved.
 //
 
 #import "CoreDataManager.h"
@@ -40,7 +40,7 @@
         photos = [result objectAtIndex:0];
     } else {
         photos = [NSEntityDescription insertNewObjectForEntityForName:@"Photos"
-                                                inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
+                                               inManagedObjectContext:[[CoreDataManager sharedManager] managedObjectContext]];
     }
     photos.albumId = [dictionary objectForKey:@"albumId"];
     photos.idPhotos = [dictionary objectForKey:@"id"];

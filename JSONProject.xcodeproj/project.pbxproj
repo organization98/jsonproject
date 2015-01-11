@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		320A11F41A0FEC8E00194970 /* DetailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 320A11F31A0FEC8E00194970 /* DetailCustomCell.m */; };
 		321A76D11A57C54F001614F7 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321A76D01A57C54F001614F7 /* AlbumViewController.m */; };
+		32248C6A1A62470E009334C8 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32248C691A62470E009334C8 /* Albums.m */; };
+		32248C6D1A62470F009334C8 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 32248C6C1A62470F009334C8 /* Photos.m */; };
 		322701841A403820007FD34A /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 322701811A403820007FD34A /* MapAnnotation.m */; };
 		322701851A403820007FD34A /* UIView+MKAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 322701831A403820007FD34A /* UIView+MKAnnotationView.m */; };
 		324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C26571A077D4C00C7FFE1 /* DetailViewController.m */; };
 		325247C21A61B73D00DBFE78 /* ThumbnailCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 325247C11A61B73D00DBFE78 /* ThumbnailCustomCell.m */; };
 		32585C1B1A239C9A00E52850 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32585C1A1A239C9A00E52850 /* CoreData.framework */; };
 		32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32585C1F1A239F4600E52850 /* JSONProject.xcdatamodeld */; };
-		3265D1DD1A4A798600586B31 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1DC1A4A798600586B31 /* Photos.m */; };
 		3265D1E01A4A798600586B31 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1DF1A4A798600586B31 /* Company.m */; };
 		3265D1E61A4A798600586B31 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1E51A4A798600586B31 /* Address.m */; };
 		3265D1E91A4A798600586B31 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3265D1E81A4A798600586B31 /* Geo.m */; };
@@ -40,7 +41,6 @@
 		32B295141A57C4720053F70A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B295031A57C4720053F70A /* UIWebView+AFNetworking.m */; };
 		32B295171A57C4FB0053F70A /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B295161A57C4FB0053F70A /* CustomCell.m */; };
 		32B2A9E61A50F0E1001583E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9E51A50F0E1001583E9 /* User.m */; };
-		32B2A9EC1A50FB27001583E9 /* Albums.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A9EB1A50FB27001583E9 /* Albums.m */; };
 		32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D3801A1A25D6B500A1A11E /* CoreDataManager.m */; };
 		32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E3775B1A42AD0800674F98 /* AddUserViewController.m */; };
 		979BC7A31A02D8D0005623F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979BC7A21A02D8D0005623F1 /* Foundation.framework */; };
@@ -75,6 +75,10 @@
 		320A11F31A0FEC8E00194970 /* DetailCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCustomCell.m; sourceTree = "<group>"; };
 		321A76CF1A57C54F001614F7 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
 		321A76D01A57C54F001614F7 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
+		32248C681A62470E009334C8 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
+		32248C691A62470E009334C8 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
+		32248C6B1A62470F009334C8 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
+		32248C6C1A62470F009334C8 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
 		322701801A403820007FD34A /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		322701811A403820007FD34A /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		322701821A403820007FD34A /* UIView+MKAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MKAnnotationView.h"; sourceTree = "<group>"; };
@@ -85,8 +89,6 @@
 		325247C11A61B73D00DBFE78 /* ThumbnailCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCustomCell.m; sourceTree = "<group>"; };
 		32585C1A1A239C9A00E52850 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		32585C201A239F4600E52850 /* JSONProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSONProject.xcdatamodel; sourceTree = "<group>"; };
-		3265D1DB1A4A798600586B31 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
-		3265D1DC1A4A798600586B31 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
 		3265D1DE1A4A798600586B31 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
 		3265D1DF1A4A798600586B31 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		3265D1E41A4A798600586B31 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
@@ -137,8 +139,6 @@
 		32B295161A57C4FB0053F70A /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		32B2A9E41A50F0E1001583E9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		32B2A9E51A50F0E1001583E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		32B2A9EA1A50FB27001583E9 /* Albums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Albums.h; sourceTree = "<group>"; };
-		32B2A9EB1A50FB27001583E9 /* Albums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Albums.m; sourceTree = "<group>"; };
 		32D380191A25D6B500A1A11E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		32D3801A1A25D6B500A1A11E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		32E3775A1A42AD0800674F98 /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
@@ -244,10 +244,10 @@
 				3265D1E81A4A798600586B31 /* Geo.m */,
 				3265D1DE1A4A798600586B31 /* Company.h */,
 				3265D1DF1A4A798600586B31 /* Company.m */,
-				32B2A9EA1A50FB27001583E9 /* Albums.h */,
-				32B2A9EB1A50FB27001583E9 /* Albums.m */,
-				3265D1DB1A4A798600586B31 /* Photos.h */,
-				3265D1DC1A4A798600586B31 /* Photos.m */,
+				32248C681A62470E009334C8 /* Albums.h */,
+				32248C691A62470E009334C8 /* Albums.m */,
+				32248C6B1A62470F009334C8 /* Photos.h */,
+				32248C6C1A62470F009334C8 /* Photos.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -501,6 +501,7 @@
 				3265D1E91A4A798600586B31 /* Geo.m in Sources */,
 				32585C211A239F4600E52850 /* JSONProject.xcdatamodeld in Sources */,
 				32B295091A57C4720053F70A /* AFURLConnectionOperation.m in Sources */,
+				32248C6D1A62470F009334C8 /* Photos.m in Sources */,
 				3265D1E01A4A798600586B31 /* Company.m in Sources */,
 				979BC7B31A02D8D1005623F1 /* AppDelegate.m in Sources */,
 				32B2950F1A57C4720053F70A /* UIAlertView+AFNetworking.m in Sources */,
@@ -512,13 +513,11 @@
 				322701841A403820007FD34A /* MapAnnotation.m in Sources */,
 				32B2950E1A57C4720053F70A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				979BC7B91A02D8D1005623F1 /* ViewController.m in Sources */,
-				32B2A9EC1A50FB27001583E9 /* Albums.m in Sources */,
 				32B295131A57C4720053F70A /* UIRefreshControl+AFNetworking.m in Sources */,
 				32B2950B1A57C4720053F70A /* AFURLResponseSerialization.m in Sources */,
 				32B295051A57C4720053F70A /* AFHTTPRequestOperationManager.m in Sources */,
 				32B295041A57C4720053F70A /* AFHTTPRequestOperation.m in Sources */,
 				322701851A403820007FD34A /* UIView+MKAnnotationView.m in Sources */,
-				3265D1DD1A4A798600586B31 /* Photos.m in Sources */,
 				32E3775C1A42AD0800674F98 /* AddUserViewController.m in Sources */,
 				324C26581A077D4C00C7FFE1 /* DetailViewController.m in Sources */,
 				32B295071A57C4720053F70A /* AFNetworkReachabilityManager.m in Sources */,
@@ -527,6 +526,7 @@
 				32B2950D1A57C4720053F70A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				32D3801B1A25D6B500A1A11E /* CoreDataManager.m in Sources */,
 				32B295171A57C4FB0053F70A /* CustomCell.m in Sources */,
+				32248C6A1A62470E009334C8 /* Albums.m in Sources */,
 				3265D1E61A4A798600586B31 /* Address.m in Sources */,
 				325247C21A61B73D00DBFE78 /* ThumbnailCustomCell.m in Sources */,
 				32B2A9E61A50F0E1001583E9 /* User.m in Sources */,
