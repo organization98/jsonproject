@@ -26,6 +26,37 @@
     
     [super viewDidLoad];
     
+    // координаты из DetailViewController (currentUser)
+    
+    CGFloat lat = -37.3159f;
+    CGFloat lng = 81.1496;
+    
+    CLLocationDegrees latitude = lat;
+    CLLocationDegrees longitude = lng;
+    
+    NSLog(@"latitude = %f, longitude = %f", latitude, longitude);
+    
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(center, 800, 800);
+    
+    [self.mapView setRegion:region animated:YES];
+    
+    
+    // получение локации по карте с текущим видом
+    CGPoint pointInMap = CGPointMake(self.mapView.bounds.size.width / 2, self.mapView.bounds.origin.y / 2); // получение точки с mapView
+    CLLocationCoordinate2D addPinLocation = [self.mapView convertPoint:pointInMap toCoordinateFromView:self.mapView];
+    
+    // добавляем Annotation по указанным координатам
+    MapAnnotation *annotation = [[MapAnnotation alloc] init];
+    annotation.subtitle = [NSString stringWithFormat:@"LAT %f : LON %f", latitude, longitude];
+    annotation.title = @"currentUser GEO";
+    annotation.coordinate = addPinLocation;
+    
+    [self.mapView addAnnotation:annotation];
+    
+    //
+    
     self.mapView.delegate = self; // устанавливаем delegate для mapView
     
     [[LocationManager sharedManager] startTrackLocation];
